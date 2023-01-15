@@ -1,0 +1,142 @@
+@import "../base/global";
+
+.photo-gallery {
+    &__items {
+        display: flex;
+        flex: 0 0 50%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        align-content: center;
+        justify-content: space-between;
+        width: 50%;
+        max-width: 50%;
+        box-sizing: border-box;
+        padding: .5rem;
+        padding-bottom: 0;
+
+
+        @include res-max-desktop-small {
+            flex: 0 0 100%;
+            order: 2;
+            width: 100%;
+            max-width: 100%;
+        }
+
+        @include res-max-mobile {
+            padding-bottom: .3rem;
+        }
+    }
+
+    &__container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+
+        @include res-max-desktop-small {
+            align-items: flex-start;
+        }
+    }
+
+    &__content {
+        flex: 0 0 50%;
+        width: 50%;
+        max-width: 50%;
+        box-sizing: border-box;
+        padding: 5rem 2rem;
+
+        @include res-max-desktop-small {
+            flex: 0 0 100%;
+            order: 1;
+            width: 100%;
+            max-width: 100%;
+            padding: 3rem 2rem;
+        }
+    }
+
+    &__item {
+        position: relative;
+        display: block;
+        flex: 0 0 32.5%;
+        width: 32.5%;
+        max-width: 32.5%;
+        margin-bottom: 1rem;
+        text-decoration: none;
+        transition: $animate-all;
+        overflow: hidden;
+        @include box-shadow(.3);
+        @include border("border", .1rem, $color-black);
+
+        @include res-max-tablet {
+            flex: 0 0 49%;
+            width: 49%;
+            max-width: 49%;
+        }
+
+        @include res-max-mobile {
+            margin-bottom: .5rem;
+        }
+
+        &:after {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            display: block;
+            content: "";
+            width: 100%;
+            height: 100%;
+            background: -moz-radial-gradient(center, ellipse cover, rgba(4, 160, 225, 0.6) 0%, rgba(0,0,0,.6) 100%); /* FF3.6-15 */
+            background: -webkit-radial-gradient(center, ellipse cover, rgba(4, 160, 225, 0.6) 0%,rgba(0,0,0,.6) 100%); /* Chrome10-25,Safari5.1-6 */
+            background: radial-gradient(ellipse at center, rgba(4, 160, 225, 0.6) 0%,rgba(0,0,0,.6) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+            opacity: .2;
+            transform: translate(-50%, -50%);
+            transition: $animate-all;
+            z-index: 2;
+        }
+
+        &:before {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            display: block;
+            content: "Zobraziť";
+            padding: 1.5rem 2rem;
+            background-color: $color-black;
+            opacity: 0;
+            font-family: $font-text;
+            font-size: $font-size-xl;
+            color: $color-white;
+            transform: translate(-50%, -50%);
+            transition: $animate-all;
+            z-index: 3;
+
+            @include res-max-desktop-small {
+                padding: 1rem 2rem;
+            }
+
+            @include res-max-tablet {
+                font-size: $font-size-l;
+            }
+        }
+
+        > img {
+            display: block;
+            width: 100%;
+        }
+        @media (hover: hover){
+            &:hover {
+                @include box-shadow(.6);
+
+                &:after {
+                    opacity: .8;
+                }
+
+                &:before {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}

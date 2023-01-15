@@ -1,0 +1,45 @@
+﻿// To get all mixins in other *.scss file use: @import "/Base/global";
+
+$color-white: #fff;
+$color-black: #000;
+$color-primary: #04a0e1;
+$color-primary-hover: darken($color-primary, 10%);
+$color-secondary: #04a0e1;
+$color-secondary-hover: darken($color-secondary, 10%);
+$color-error: #e14242;
+$color-font: $color-black;
+$color-outline: lighten($color-primary, 20%);
+$color-placeholder: #999;
+$color-button: rgba(69, 65, 65, 0.80);
+$color-bg: #170f24;
+$color-box-shadow: rgba(0,0,0,0.75);
+$color-nav: rgba(0, 0, 0, .98);
+$color-overlay: rgba(0,0,0,0.6);
+$color-transparent: rgba(0, 0, 0, 0);
+
+$font-awesome: 'FontAwesome';
+$font-text: 'Open Sans', sans-serif;
+
+// Helpfull variables
+$outline-width: .1rem;
+$radius: .2rem;
+$transition-time: .3s;
+$animate-all: all ease-in-out $transition-time;
+$btn-padding: .8rem 1.6rem;
+
+// All devices width for responsivity
+$width-mobile: 560px;
+$width-tablet: 768px;
+$width-desktop: 1024px;
+$width-desktop-large: 1366px;
+$width-desktop-HD: 1440px;
+$width-desktop-full-HD: 1920px;
+
+//font-sizes
+$font-size-xxl: 4rem;
+$font-size-xl: 2.2rem;
+$font-size-l: 2rem;
+$font-size-m: 1.8rem;
+$font-size-s: 1.6rem;
+$font-size-xs: 1.2rem;
+$font-size-xxs: 1rem;

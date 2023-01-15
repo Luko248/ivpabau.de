@@ -1,0 +1,143 @@
+@import "../Base/global";
+
+
+.window {
+    position: absolute;
+    top: 50%;
+    left: 10rem;
+    width: 18rem;
+    height: 26rem;
+    transform: rotateY(7deg) translateY(-50%);
+    transform-style: preserve-3d;
+    z-index: 10;
+
+    &__part {
+        position: absolute;
+        width: 8.4rem;
+        height: 12rem;
+        background-color: $color-primary;
+        opacity: 0;
+        animation: ShowContent .5s forwards linear;
+        animation-delay: .5s;
+
+        &:nth-child(2) {
+            top: 0;
+            right: 0;
+            animation-delay: .7s;
+        }
+
+        &:nth-child(3) {
+            bottom: 0;
+            animation-delay: .8s;
+        }
+
+        &:nth-child(4) {
+            right: 0;
+            bottom: 0;
+            animation-delay: .6s;
+        }
+    }
+}
+
+.frame {
+    position: absolute;
+    top: 50%;
+    width: 32rem;
+    height: 37rem;
+    opacity: 0;
+    animation: ShowContent .5s forwards linear;
+    animation-delay: 1s;
+    transform: rotateY(-3.5deg) translateY(-50%);
+    transform-style: preserve-3d;
+    z-index: 5;
+
+    &__part {
+        position: absolute;
+        top: 50%;
+        left: 1.5rem;
+        width: 100%;
+        height: 100%;
+        border: 2rem solid $color-black;
+        border-collapse: collapse;
+        border-right-width: 3rem;
+        border-left-color: $color-white;
+        transform: translate(0,-50%);
+
+        &:before, &:after {
+            position: absolute;
+            top: -.8rem;
+            left: -3rem;
+            display: block;
+            content: "";
+            width: 8rem;
+            height: 3rem;
+            background: $color-white;
+            transform: rotate(18deg);
+            z-index: 10;
+        }
+
+        &:after {
+            top: auto;
+            bottom: -.8rem;
+            transform: rotate(-18deg);
+        }
+    }
+
+    &:nth-child(2) {
+        left: 23.5rem;
+        width: 17.5rem;
+        height: 28rem;
+        animation-delay: 1.2s;
+        transform: rotateY(-5.5deg) translateY(-50%);
+        z-index: 4;
+
+        > div {
+            border-width: 1.8rem;
+            border-right-width: 2.2rem;
+
+            &:before, &:after {
+                position: absolute;
+                width: 6rem;
+                transform: rotate(22deg);
+            }
+
+            &:after {
+                transform: rotate(-22deg);
+            }
+        }
+    }
+
+    &:nth-child(3) {
+        left: 38rem;
+        width: 12.5rem;
+        height: 24rem;
+        animation-delay: 1.4s;
+        transform: rotateY(-6.5deg) translateY(-50%);
+        z-index: 3;
+
+        > div {
+            border-width: 1.6rem;
+            border-right-width: 1.5rem;
+
+            &:before, &:after {
+                position: absolute;
+                width: 4rem;
+                transform: rotate(23deg);
+            }
+
+            &:after {
+                transform: rotate(-23deg);
+            }
+        }
+    }
+}
+
+@keyframes ShowContent {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}

@@ -1,0 +1,107 @@
+@import "../Base/global";
+
+.products {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: space-between;
+    width: 90%;
+    margin: 0 auto;
+
+    @include res-max-desktop-small {
+        width: 100%;
+        padding: 0 2rem;
+    }
+
+    &__item {
+        flex: 0 0 24%;
+        width: 24%;
+        min-width: 20rem;
+        max-width: 24%;
+        box-sizing: border-box;
+        padding: 2rem;
+        text-align: center;
+        text-decoration: none;
+
+        @include res-max-desktop-large {
+            padding: 0;
+        }
+
+        @include res-max-desktop-small {
+            flex: 0 0 48%;
+            width: 48%;
+            max-width: 48%;
+            margin-bottom: 2rem;
+        }
+
+        @include res-max-mobile {
+            flex: 0 0 100%;
+            width: 100%;
+            max-width: 100%;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        img {
+            display: block;
+            height: 28rem;
+            margin: 0 auto;
+
+            @include res-max-desktop-large {
+                height: 20rem
+            }
+        }
+
+        strong {
+            display: block;
+            width: 70%;
+            padding: 1.5rem 2rem;
+            margin: 0 auto;
+            margin-top: 2rem;
+            background-color: $color-black;
+            font-size: $font-size-xl;
+            font-weight: 500;
+            color: $color-white;
+            text-align: center;
+            transform: scale(1,1);
+            transition: $animate-all;
+            @include box-shadow(.3);
+
+            @include res-max-desktop-large {
+                width: 85%;
+                padding: 1.5rem 0;
+                font-size: $font-size-l;
+            }
+
+            @include res-max-desktop-small {
+                width: 70%;
+                padding: 1rem 2rem;
+            }
+
+            @include res-max-tablet {
+                width: 90%;
+                font-size: $font-size-l;
+            }
+
+            @include res-max-mobile {
+                width: 100%;
+            }
+        }
+        @media (hover: hover){
+            &:hover {
+                strong {
+                    transform: scale(1.05,1.05);
+                    @include box-shadow(.6);
+
+                    @include res-max-desktop-small {
+                        transform: translate(0,0);
+                        @include box-shadow(.3);
+                    }
+                }
+            }
+        }
+    }
+}

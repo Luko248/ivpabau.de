@@ -1,0 +1,29 @@
+﻿//External
+@import '../../../node_modules/@fancyapps/ui/src/Fancybox/Fancybox.scss';
+
+// Base
+@import "Base/default";
+@import "Base/typography";
+@import "Base/classes";
+
+// Components
+@import "Components/burger-button";
+@import "Components/buttons";
+@import "Components/container";
+@import "Components/flex-container";
+@import "Components/form";
+
+// Modules
+@import "Modules/footer.scss";
+@import "Modules/gallery";
+@import "Modules/navigation.scss";
+
+//Views
+@import "Views/about";
+@import "Views/certificate";
+@import "Views/contact";
+@import "Views/header";
+@import "Views/partners";
+@import "Views/products";
+@import "Views/section";
+@import "Views/technology";

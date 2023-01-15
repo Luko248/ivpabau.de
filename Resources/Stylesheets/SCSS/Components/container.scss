@@ -1,0 +1,12 @@
+@import "../Base/global";
+
+.container {
+    width: 75%;
+    box-sizing: border-box;
+    margin: 0 auto;
+
+    @include res-max-desktop-small {
+        width: 100%;
+        padding: 0 2rem;
+    }
+}

@@ -1,0 +1,25 @@
+// To get all mixins in other *.scss file use: @import "/Base/global";
+
+@import "Mixins/grid-flex";
+@import "Mixins/responsive";
+@import "Mixins/border";
+
+$alpha-level: rgba(0, 0, 0, .3);
+
+@mixin set-outline() {
+    border-color: $color-outline !important;
+    box-shadow: 0 0 0 $outline-width $color-outline;
+    outline: none;
+}
+
+@mixin set-error-outline() {
+    border-color: $color-error !important;
+    box-shadow: 0 0 0 $outline-width $color-error !important;
+    outline: none;
+}
+
+@mixin box-shadow($var-alpha-level: .3) {
+    -webkit-box-shadow: 6px 6px 10px 0px rgba(0,0,0,$var-alpha-level);
+    -moz-box-shadow: 6px 6px 10px 0px rgba(0,0,0,$var-alpha-level);
+    box-shadow: 6px 6px 10px 0px rgba(0,0,0,$var-alpha-level);
+}

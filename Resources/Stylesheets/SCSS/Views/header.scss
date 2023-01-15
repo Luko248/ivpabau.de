@@ -1,0 +1,319 @@
+@import "../Base/global";
+.header {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: space-between;
+    width: 100vw;
+    height: auto;
+    min-height: 100vh;
+    max-height: 2048px;
+    >div:first-of-type {
+        flex: 0 0 60%;
+        width: 60%;
+        max-width: 60%;
+        @include res-max-desktop-large {
+            flex: 0 0 calc(100% - 55rem);
+            width: calc(100% - 55rem);
+            max-width: calc(100% - 55rem);
+        }
+        @include res-max-desktop-small {
+            flex: 0 0 100%;
+            width: 100%;
+            max-width: 100%;
+            height: 100vh;
+        }
+    }
+    >div:last-of-type {
+        flex: 0 0 40%;
+        width: 40%;
+        max-width: 40%;
+        overflow: hidden;
+        @include res-max-desktop-large {
+            flex: 55rem;
+            width: 55rem;
+            max-width: 55rem;
+        }
+        @include res-max-desktop-small {
+            flex: 0 0 100%;
+            width: 100%;
+            max-width: 100%;
+        }
+    }
+    &__container {
+        position: relative;
+        height: 100%;
+        text-align: center;
+    }
+    &__logo {
+        position: absolute;
+        top: 50%;
+        left: 55%;
+        width: 75%;
+        min-width: 25rem;
+        transform: translate(-50%, -50%);
+        @include res-max-desktop-small {
+            left: 50%;
+            width: 100%;
+            padding: 0 2rem;
+        }
+        img {
+            display: block;
+            width: 80%;
+            margin: 0 auto;
+            margin-bottom: 1rem;
+            opacity: 0;
+            animation: ShowLogo 1s forwards;
+            animation-delay: .5s;
+            @include res-max-desktop-large {
+                width: 100%;
+            }
+            @include res-max-desktop-small {
+                width: 80%;
+                max-width: $width-mobile;
+            }
+        }
+        >p {
+            opacity: 0;
+            font-size: 3rem;
+            color: $color-black;
+            text-align: center;
+            animation: Showtext 1s forwards;
+            animation-delay: .6s;
+            @include res-max-desktop-large {
+                font-size: $font-size-xl;
+            }
+            @include res-max-desktop-small {
+                font-size: $font-size-xl;
+            }
+            @include res-max-mobile {
+                font-size: $font-size-l;
+            }
+        }
+    }
+    &__buttons {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        max-width: $width-mobile;
+        margin: 0 auto;
+        margin-top: 10rem;
+        opacity: 0;
+        animation: ShowButtons 1s forwards;
+        animation-delay: .7s;
+        @include res-max-desktop-large {
+            margin-top: 5rem;
+        }
+        @include res-max-tablet {
+            justify-content: center;
+            margin-top: 4rem;
+        }
+    }
+    &__button {
+        position: relative;
+        display: inline-block;
+        flex: 0 0 47%;
+        width: 47%;
+        max-width: 47%;
+        padding: 1.5rem 2rem;
+        background-color: $color-black;
+        font-size: $font-size-xl;
+        color: $color-white;
+        text-align: center;
+        text-decoration: none;
+        animation-delay: .8s;
+        transform: scale(1, 1);
+        transition: $animate-all;
+        @include box-shadow(.3);
+        @include border("border", 3px, $color-black);
+        @include res-max-desktop-small {
+            padding: 1rem 2rem;
+        }
+        @include res-max-tablet {
+            font-size: $font-size-l;
+        }
+        @include res-max-mobile {
+            flex: 0 0 100%;
+            width: 100%;
+            max-width: 100%;
+        }
+        @media (hover: hover){
+            &:hover {
+                transform: scale(1.05, 1.05);
+                @include box-shadow(.6);
+                @include res-max-tablet {
+                    padding: 1rem;
+                    transform: scale(1, 1);
+                }
+            }
+        }
+        &--secondary {
+            background-color: $color-white;
+            color: $color-black;
+            animation-delay: .8s;
+            @include res-max-tablet {
+                margin-left: 2rem;
+            }
+            @include res-max-mobile {
+                margin-top: 3.2rem;
+                margin-left: 0;
+            }
+        }
+    }
+    &__services {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: stretch;
+        height: 100%;
+        transform: translateX(4rem);
+        overflow: hidden;
+        -webkit-clip-path: polygon(40% 0, 100% 0, 100% 100%, 0% 100%);
+        clip-path: polygon(40% 0, 100% 0, 100% 100%, 0% 100%);
+        @include res-max-desktop-small {
+            display: none;
+        }
+    }
+    &__service {
+        position: relative;
+        flex: 0 0 100%;
+        width: 100%;
+        max-width: 100%;
+        height: 33.333%;
+        background-color: $color-placeholder;
+        animation: TranslateFormRight .8s forwards linear;
+        transform: skew(-.35rad) translateX(200%);
+        transition: $animate-all;
+        overflow: hidden;
+        cursor: pointer;
+        @media (hover: hover){
+            &:hover {
+                img {
+                    transform: translate(-50%, -50%) scale(1.05, 1.05) skew(.35rad);
+                }
+                div {
+                    transform: scale(1.05, 1.05);
+                    @include box-shadow();
+                }
+            }
+        }
+        >img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            display: block;
+            width: 100%;
+            height: auto;
+            transform: translate(-50%, -50%) scale(1, 1) skew(.35rad);
+            transition: $animate-all;
+        }
+        >div {
+            position: absolute;
+            bottom: 2rem;
+            left: 2rem;
+            min-width: 12rem;
+            padding: 1.5rem;
+            background-color: $color-black;
+            text-align: center;
+            transform: scale(1, 1);
+            transition: $animate-all;
+            @include box-shadow(.0);
+            span {
+                display: inline-block;
+                font-size: $font-size-xl;
+                color: $color-white;
+                transform: skew(.35rad);
+                @include res-max-desktop-small {
+                    font-size: $font-size-l;
+                    transform: skew(0);
+                }
+            }
+        }
+        &:first-child {
+            animation-delay: .8s;
+            >div {
+                left: 37%;
+            }
+        }
+        &:nth-child(2) {
+            animation-delay: .9s;
+            >div {
+                left: 24%;
+            }
+            >img {
+                width: 100%;
+                height: 130%;
+            }
+        }
+        &:nth-child(3) {
+            flex: 0 0 50%;
+            width: 50%;
+            max-width: 50%;
+            animation-delay: 1.2s;
+            >div {
+                left: 22%;
+            }
+            >img {
+                min-width: 130%;
+                height: auto;
+                min-height: 100%;
+            }
+        }
+        &:last-child {
+            flex: 0 0 50%;
+            width: 50%;
+            max-width: 50%;
+            animation-delay: 1s;
+            >img {
+                min-width: 130%;
+                height: auto;
+                min-height: 100%;
+            }
+        }
+    }
+}
+
+@keyframes ShowLogo {
+    from {
+        opacity: 0;
+        transform: translate(0, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate(0, -1rem);
+    }
+}
+
+@keyframes Showtext {
+    from {
+        opacity: 0;
+        transform: translate(0, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate(0, 1rem);
+    }
+}
+
+@keyframes ShowButtons {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes TranslateFormRight {
+    from {
+        transform: skew(-.35rad) translateX(200%);
+    }
+    to {
+        transform: skew(-.35rad) translateX(0);
+    }
+}
