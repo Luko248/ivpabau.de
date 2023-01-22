@@ -1601,8 +1601,8 @@ h1.main-title {
     text-align: right;
     text-decoration: none;
     text-transform: uppercase;
-    z-index: 9999;
-    overflow-y: hidden; }
+    overflow-y: hidden;
+    z-index: 9999; }
     .nav__item:first-child {
       margin-left: 0; }
     @media only screen and (max-width: 1024px) {
