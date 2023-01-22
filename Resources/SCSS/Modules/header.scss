@@ -1,0 +1,42 @@
+@import "../base/global";
+
+.header {
+    position: relative;
+    min-block-size: 100vh;
+    max-block-size: 8096px;
+
+   &__logo{
+    max-inline-size: 768px;
+    padding-inline: var(--padding-inline--container);
+    @include position;
+
+    z-index: 1;
+
+    > img{
+        display: block;
+    }
+
+   }
+
+   &__button{
+    --icon-trans-y: 0;
+    @include position(100%, 50%, -50%, calc(-100% - 5vh));
+    @include flex-set(flex, column, nowrap, $gap-m, center, center);
+    font-size: clamp($gap-l, 2em,  3vh);
+    color: $color-primary;
+    text-decoration: var(--text-decoration, none);
+    text-transform: uppercase;
+
+    @include hover{
+        --icon-trans-y: #{$gap-s};
+        --text-decoration: underline;
+    }
+
+    .icon{
+        --icon-size: clamp(#{$gap-xxl}, 5em, 7vh);
+        translate: 0 var(--icon-trans-y);
+        transition: translate $trans-time ease-in-out;
+    }
+   }
+}
+

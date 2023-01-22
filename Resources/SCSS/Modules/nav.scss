@@ -1,0 +1,29 @@
+@import "../Base/global";
+
+nav {  
+    @include flex-set(flex, row, nowrap, 0, center, flex-end);
+    position: fixed;
+    inset: 0 0 auto 0;
+    block-size: var(--nav-height);
+    padding-inline: var(--padding-inline--container);
+    background-color: var(--color-trans);
+    color: var(--nav-color, #{$color-font});
+    z-index: 999;
+
+    @include res-max-tablet {
+        --nav-justify-content: space-between;
+        --color-bg-nav: #{$color-bg-nav-mobile};
+    }
+}
+
+.menu{
+    display: var(--nenu-display, none);
+    
+    &__item{
+        >a{}
+    }
+
+    &__submenu{
+
+    }
+}

@@ -60,28 +60,47 @@
 </head>
 
 <body>
+    <svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <defs>
+        <symbol id="icon-arrow-right" viewBox="0 0 32 32">
+        <path d="M31.633 15.115c-0-0-0.001-0.001-0.001-0.001l-6.532-6.5c-0.489-0.487-1.281-0.485-1.768 0.004s-0.485 1.281 0.004 1.768l4.385 4.364h-26.472c-0.69 0-1.25 0.56-1.25 1.25s0.56 1.25 1.25 1.25h26.472l-4.385 4.364c-0.489 0.487-0.491 1.278-0.004 1.768s1.279 0.491 1.768 0.004l6.532-6.5c0-0 0.001-0.001 0.001-0.001 0.49-0.489 0.488-1.283-0-1.77z"></path>
+        </symbol>
+        <symbol id="icon-scroll" viewBox="0 0 32 32">
+        <path d="M16 28.8c4.948 0 8.96-4.012 8.96-8.96v0-7.68c0-4.948-4.012-8.96-8.96-8.96s-8.96 4.012-8.96 8.96v0 7.68c0 4.948 4.012 8.96 8.96 8.96v0zM8.32 12.16c0-4.242 3.438-7.68 7.68-7.68s7.68 3.438 7.68 7.68v0 7.68c0 4.242-3.438 7.68-7.68 7.68s-7.68-3.438-7.68-7.68v0z"></path>
+        <path d="M15.36 15.68h0.058l0.128 0.134c0.116 0.117 0.277 0.189 0.454 0.189s0.338-0.072 0.454-0.189l0-0 0.128-0.134h0.058v-0.058l3.654-3.648-0.909-0.909-2.746 2.752v-6.778h-1.28v6.778l-2.746-2.752-0.909 0.909 3.654 3.648z"></path>
+        </symbol>
+        <symbol id="icon-phone" viewBox="0 0 32 32">
+        <path d="M27.312 4.685c-6.249-6.247-16.38-6.246-22.627 0.003s-6.246 16.38 0.003 22.627 16.38 6.246 22.627-0.003c3-3.001 4.685-7.072 4.685-11.315s-1.687-8.312-4.688-11.312zM24.231 22.288c-0.001 0.001-0.001 0.001-0.002 0.002v-0.005l-0.811 0.805c-1.048 1.062-2.575 1.498-4.027 1.152-1.462-0.391-2.852-1.014-4.117-1.845-1.175-0.751-2.265-1.629-3.248-2.619-0.905-0.898-1.718-1.884-2.427-2.944-0.775-1.14-1.389-2.382-1.824-3.691-0.498-1.537-0.085-3.224 1.067-4.357l0.949-0.949c0.264-0.265 0.693-0.266 0.958-0.002 0.001 0.001 0.001 0.001 0.002 0.002l2.997 2.997c0.265 0.264 0.266 0.693 0.002 0.958-0.001 0.001-0.001 0.001-0.002 0.002l-1.76 1.76c-0.505 0.499-0.569 1.293-0.149 1.867 0.637 0.874 1.341 1.696 2.107 2.459 0.854 0.857 1.782 1.637 2.773 2.331 0.573 0.4 1.35 0.332 1.845-0.16l1.701-1.728c0.264-0.265 0.693-0.266 0.958-0.002 0.001 0.001 0.001 0.001 0.002 0.002l3.003 3.008c0.265 0.264 0.266 0.693 0.002 0.958z"></path>
+        </symbol>
+        <symbol id="icon-menu" viewBox="0 0 32 32">
+        <path d="M30 28h-28c-1.105 0-2-0.895-2-2s0.895-2 2-2h28c1.105 0 2 0.895 2 2s-0.895 2-2 2z"></path>
+        <path d="M30 18h-28c-1.105 0-2-0.895-2-2s0.895-2 2-2h28c1.105 0 2 0.895 2 2s-0.895 2-2 2z"></path>
+        <path d="M30 8h-28c-1.105 0-2-0.895-2-2s0.895-2 2-2h28c1.105 0 2 0.895 2 2s-0.895 2-2 2z"></path>
+        </symbol>
+        </defs>
+        </svg>
+        
     <header class="header" id="heim">
-        <div class="header__container">
-            <div class="header__logo">
-                <picture>
-                    <img src="wwwroot/Images/Logos/logo.svg" loading="lazy" intrinsicsize="661 x 385" alt="ivpabau.de logo" width="661">
-                </picture>
-            </div>
-            <a href="#uber-uns" class="header__button">
-                weiterlesen</a>
+        <div class="header__logo">
+            <picture>
+                <img src="wwwroot/Images/Logos/logo.svg" loading="lazy" intrinsicsize="661 x 385" alt="ivpabau.de logo" width="661">
+            </picture>
         </div>
+        <a href="#uber-uns" class="header__button">
+            <svg class="icon icon-scroll"><use xlink:href="#icon-scroll"></use></svg>
+            weiterlesen</a>
     </header>
 
     <!--Navigation-->
-    <nav class="nav">
+    <nav>
         <ul class="menu">
-            <li><a href="#heim" rel="noopener" class="menu__item"><span>Heim</span></a></li>
-            <li><a href="#uber-uns" rel="noopener" class="menu__item"><span>Über uns</span></a></li>
-            <li><a href="#unsere-arbeit" rel="noopener" class="menu__item"><span>unsere Arbeit</span></a></li>
+            <li><a href="#heim" rel="noopener" class="menu__item">Heim</a></li>
+            <li><a href="#uber-uns" rel="noopener" class="menu__item">Über uns</a></li>
+            <li><a href="#unsere-arbeit" rel="noopener" class="menu__item">Unsere arbeit</a></li>
             <li><a href="#kontakt" rel="noopener" class="menu__item"><span>Kontakt</span></a></li>
         </ul>
-        <div class="burger">
-            <div></div>
+        <div class="burger" id="menuBtn">
+            <svg class="icon icon-menu"><use xlink:href="#icon-menu"></use></svg>
         </div>
     </nav>
 
@@ -112,17 +131,17 @@
         <section class="sec" id="unsere-arbeit">
             
             <div class="gallery">
-                <div class="g-item g-item--col-span-2">
+                <div class="gitem gitem--col-span-2">
                     <h2 class="title">Unsere Arbeit</h2>
                 </div>
                 
-                <a href="" class="g-item g-item--row-span-2"></a>
+                <a href="" class="gitem gitem--row-span-2"></a>
                 <a href=""></a>
                 <a href=""></a>
-                <a href="" class="g-item g-item--col-span-2"></a>
+                <a href="" class="gitem gitem--col-span-2"></a>
                 <a href=""></a>
                 <a href=""></a>
-                <div class="g-item g-item--col-span-2">
+                <div class="gitem gitem--col-span-2">
                     <a href="" class="button">Kontakt</a>
                 </div>
             </div>
