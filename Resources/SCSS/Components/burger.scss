@@ -1,14 +1,14 @@
 @import "../base/global";
 .burger {
+  @include flex-set(inline-flex, column, nowrap, $gap-s, center);
     position: relative;  
-    display: block;
     place-items: center;
-    inline-size: $gap-xxl;
-    aspect-ratio: 4 / 3;
     padding: 0;
     background: none;
     border-color: var(--color-trans);
+    font-size: small;
     color: var(--color-primary);
+    text-transform: uppercase;
     cursor: pointer;
 
     .icon{
