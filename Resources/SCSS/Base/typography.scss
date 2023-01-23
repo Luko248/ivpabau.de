@@ -17,13 +17,14 @@ p, span, small{
 
 .title{
     --title-justify-content: flex-start;
-    --title-font-size: 6em;
-    --title-color: #{$color-font};
-    --title-mg-bottom: #{$gap-xxl}; 
+    --title-font-size: 6.5em;
+    --title-color: #{$color-primary};
+    --title-mg-bottom: clamp(#{$gap-xxl}, 1em, 5vh); 
     @include flex-set(flex, row, wrap, 0, center, var(--title-justify-content));
     margin-bottom: var(--title-mg-bottom);
     font-family: $font-title;
     font-size: var(--title-font-size);
+    font-weight: 700;
     line-height: 1.2;
     color: var(--title-color);
 
@@ -73,19 +74,33 @@ p, span, small{
             --title-font-size: 2.4em;
         }
     }
+
+    &--l{
+        --title-font-size: 8em;
+        margin-block-start: 1em;
+    }
+
+    &:has(> span){
+        @include flex-set(inline-flex, row, nowrap, $gap-m, flex-end);
+        text-transform: uppercase;
+        span{
+            font-size: .5em;
+            font-weight: 300;
+            line-height: 1;
+            text-transform: lowercase;
+            translate: $gap-s -45%;
+        }
+    }
 }
 
 .desc{
-    --border-width: 0;
     --mg-b: 5rem;
     --desc-font-size: large;
-    @include border('left', var(--border-width), $color-font);
-    padding-left: var(--desc-pad-left);
     margin-bottom: var(--mg-b);
     font-family:  $font-text;
     font-size: var(--desc-font-size);
     line-height: 1.7;
-    color: $color-font;
+    color: var(--desc-color, #{$color-primary});
     
     @include res-max-laptop-s{
         --desc-font-size: medium;
@@ -94,11 +109,11 @@ p, span, small{
     @include res-max-mobile-l{
         --mg-b: #{$gap-xxl};
     }
-    
-    &--line{
-        --desc-pad-left: #{$gap-l};
-        --border-width: .2rem;
+
+    &--white{
+        --desc-color: #{$color-white};
     }
+
 
     &--no-mg{
         --mg-b: 0;

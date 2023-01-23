@@ -3,9 +3,9 @@
 .gallery {
   @include grid-columns(
     grid,
-    repeat(var(--col-count, 4), minmax($gap-m, 1fr)),
-    var(--gap, #{$gap-s}),
-    var(--align-items, flex-start)
+    repeat(var(--col-count, 3), minmax($gap-xxl, 1fr)),
+    var(--gap, #{$gap-xxl}),
+    var(--align-items, stretch)
   );
   margin-block-end: $gap-xxl;
 
@@ -19,7 +19,6 @@
   }
 
   @include res-max-mobile-l {
-    --col-count: 1;
     --gap: #{$gap-xl};
   }
 }
@@ -30,25 +29,30 @@
   --content_backgdrop-filter: blur(0);
   position: relative;
   display: block;
+  aspect-ratio: 1;
   text-decoration: none;
   overflow: hidden;
 
-  &:first-child{
-    @include grid-col-span(var(--gitem_colspan, 2));
-    @include grid-row-span(var(--gitem_rowspan, 2));
-
-    @include res-max-mobile-l{
-      --gitem_colspan: 1;
-      --gitem_rowspan: 1;
+  &:is(a){
+    background-color: $color-secondary;
+    @include hover {
+      --photo_scale: 1.1;
+      --text_translate-x: 0;
+      --content_backgdrop-filter: blur(.1em);
     }
   }
-
-  @include hover {
-    --photo_scale: 1.1;
-    --text_translate-x: 0;
-    --content_backgdrop-filter: blur(.1em);
+ 
+  &--row-span-2{
+    @include grid-row-span(var(--gitem_rowspan, 2));   
+    aspect-ratio: unset;
   }
 
+  &--col-span-2{
+    @include grid-col-span(var(--gitem_colspan, 2));
+    aspect-ratio: unset;
+  }
+
+  
   &__photo {
     position: relative;
     inline-size: 100%;

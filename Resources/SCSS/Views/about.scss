@@ -1,0 +1,25 @@
+@import "../Base/global";
+
+.about{
+    &__container{
+        @include grid-columns(grid, repeat(var(--col-count, 2), minmax($width-laptop-s, 1fr)), 0, stretch);
+
+        >div:not([class]){
+            min-block-size: 100vh;
+            max-block-size: 8096px;
+            padding-block: var(--padding-block--section);
+            padding-inline: var(--padding-inline--container);
+            @include flex-set(flex, column, nowrap, var(--gap, #{$gap-xxl}), center, space-between);
+            text-align: center;
+
+            &:first-of-type{
+                background-color: $color-primary;
+                color: $color-bg;
+            }
+        }
+
+        p{
+            inline-size: max( $width-mobile-l, $width-mobile-s);
+        }
+    }
+}

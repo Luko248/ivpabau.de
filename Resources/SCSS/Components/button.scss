@@ -1,22 +1,17 @@
 @import "../base/global";
 
 .button{
-    --btn-color: var(--color-white);
-    --btn-bg-color: #{$color-black--trans-dark};
-    --btn-padding-x: #{$gap-xxl};
-    --btn-padding-y: #{$gap-l};
-    --btn-width: 20rem;
-    --btn-font-size: large;
-    --icon-size: #{$gap-m};
+    --btn-color: var(--color-primary);
     @include flex-set(inline-flex, row, nowrap, $gap-l, center, center, center);
-    @include border('def', 1px, var(--color-trans));
-    min-width: var(--btn-width);
-    padding-block: var(--btn-padding-y);
-    padding-inline: var(--btn-padding-x);
-    background-color: var(--btn-bg-color);
+    @include border('def', 2px, var(--btn-color));
+    min-inline-size: 20rem;
+    padding-block: var(--btn-padding-y, #{$gap-l});
+    padding-inline: var(--btn-padding-x, #{$gap-xxl});
+    background-color: var(--btn-bg-color, var(--color-trans));
+    border-radius: 100vmax;
     font-family: $font-text;
-    font-size: var(--btn-font-size);
-    font-weight: 400;
+    font-size: var(--btn-font-size, large);
+    font-weight: 700;
     line-height: 1;
     color: var(--btn-color);
     text-decoration: none;
@@ -28,10 +23,14 @@
         --btn-padding-x: #{$gap-l};
         --btn-padding-y: 1.2rem;
         --btn-font-size: medium;
-        --btn-width: 16rem;
+        --btn-inline-size: 16rem;
     }
 
     @include hover{
-        --btn-bg-color: var(--color-black);
+
+    }
+
+    &--white{
+        --btn-color: var(--color-bg);
     }
 }

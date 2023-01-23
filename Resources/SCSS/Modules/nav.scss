@@ -18,12 +18,13 @@ nav {
 
 .menu{
     display: var(--nenu-display, none);
-    
     &__item{
-        >a{}
+        >a{
+
+        }
     }
 
     &__submenu{
-
+        
     }
 }

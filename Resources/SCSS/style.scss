@@ -16,14 +16,14 @@
 
 @import "components/scrollbar";
 @import "components/social";
-@import "components/tags";
 
 // Modules
-@import "Modules/ba-slider";
-@import "Modules/carousel";
 @import "Modules/contact";
 @import "modules/footer";
 @import "Modules/gallery";
 @import "Modules/header";
 @import "modules/nav";
 @import "modules/section";
+
+// Wiews
+@import "views/about";

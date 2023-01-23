@@ -21,6 +21,7 @@ $color-font: $color-white;
 $trans-time: .25s;
 $animate-all: all ease-in-out var($trans-time);
 $gap-m: .8rem;
+$gap-xs: ($gap-m / 4);
 $gap-s: ($gap-m / 2);
 $gap-l: ($gap-m * 2);
 $gap-xl: ($gap-m * 3);
