@@ -2,7 +2,7 @@
 
 .about{
     &__container{
-        @include grid-columns(grid, repeat(var(--col-count, 2), minmax($width-laptop-s, 1fr)), 0, stretch);
+        @include grid-columns(grid, repeat(var(--col-count, 2), minmax($width-mobile-s, 1fr)), 0, stretch);
 
         >div:not([class]){
             min-block-size: 100vh;

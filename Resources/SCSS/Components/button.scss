@@ -33,4 +33,8 @@
     &--white{
         --btn-color: var(--color-bg);
     }
+
+    .icon{
+        --icon-size: #{$gap-m};
+    }
 }
