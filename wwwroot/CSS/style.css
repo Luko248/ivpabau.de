@@ -974,11 +974,16 @@ ul:not([class]) {
   background: none;
   border-color: var(--color-trans);
   font-size: small;
-  color: var(--color-primary);
+  color: var(--burger-color, var(--color-primary));
   text-transform: uppercase;
+  transition: color 0.25s ease-in-out;
+  z-index: 2;
   cursor: pointer; }
+  .burger--open {
+    --burger-color: var(--color-white); }
   .burger .icon {
-    --icon-size: 3.2rem; }
+    --icon-size: 3.2rem;
+    pointer-events: none; }
 
 .container {
   inline-size: var(--container-width, 80%);
@@ -1308,7 +1313,32 @@ nav {
       --color-bg-nav: #111618; } }
 
 .menu {
-  display: var(--nenu-display, none); }
+  position: fixed;
+  inset: 0;
+  display: var(--nenu-display, none);
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  gap: 3.2rem;
+  padding: 0;
+  margin: 0;
+  background-color: #242424;
+  opacity: var(--menu-opacity, 0);
+  list-style: none;
+  transition: opacity 0.5s linear 0.1s;
+  z-index: 1; }
+  .menu--open {
+    --menu-opacity: 1;
+    --nenu-display: flex; }
+  .menu__item {
+    font-size: xx-large;
+    color: white;
+    text-align: center;
+    text-decoration: var(--item_text-decoration, none);
+    text-transform: uppercase; }
+    @media (hover: hover) {
+      .menu__item:hover {
+        --item_text-decoration: underline; } }
 
 section {
   --sec-bg: #fcfcfc;

@@ -1,6 +1,6 @@
 @import "../Base/global";
 
-nav {  
+nav {
     @include flex-set(flex, row, nowrap, 0, center, flex-end);
     position: fixed;
     inset: 0 0 auto 0;
@@ -16,15 +16,39 @@ nav {
     }
 }
 
-.menu{
+.menu {
+    position: fixed;
+    inset: 0;
     display: var(--nenu-display, none);
-    &__item{
-        >a{
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    gap: $gap-xxl;
+    padding: 0;
+    margin: 0;
+    background-color: $color-primary;
+    opacity: var(--menu-opacity, 0);
+    list-style: none;
+    transition: opacity 0.5s linear 0.1s;
+    z-index: 1;
 
+    &--open {
+        --menu-opacity: 1;
+        --nenu-display: flex;
+    }
+
+    &__item {
+        font-size: xx-large;
+        color: $color-white;
+        text-align: center;
+        text-decoration: var(--item_text-decoration, none);
+        text-transform: uppercase;
+
+        @include hover{
+            --item_text-decoration: underline;
         }
     }
 
-    &__submenu{
-        
+    &__submenu {
     }
 }
