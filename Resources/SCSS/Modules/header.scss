@@ -5,38 +5,71 @@
     min-block-size: 100vh;
     max-block-size: 8096px;
 
-   &__logo{
-    max-inline-size: 768px;
-    padding-inline: var(--padding-inline--container);
-    @include position;
+    &__logo {
+        @include flex-set(flex, column, nowrap, 0, center, center);
+        container-type: inline-size;
+        inline-size: 768px;
+        padding-inline: var(--padding-inline--container);
+        z-index: 1;
+        @include position;
 
-    z-index: 1;
+        > svg {
+            display: block;
+            inline-size: 100cqi;
+            opacity: 0;
+            animation: showRoof 0.7s linear forwards 1s;
+            translate: 0 7.5cqi;
+            fill: $color-primary;
+        }
 
-    > img{
-        display: block;
+        > h1 {
+            opacity: 0;
+            font-size: 21.5cqi;
+            font-weight: 600;
+            line-height: 1;
+            letter-spacing: 2cqi;
+            color: $color-primary;
+            white-space: nowrap;
+            animation: showTitle 1s linear forwards;
+            animation-delay: 0.3s;
+
+            > span {
+                font-size: 0.7em;
+                font-weight: 400;
+            }
+        }
     }
 
-   }
+    &__button {
+        --icon-trans-y: 0;
+        @include position(100%, 50%, -50%, calc(-100% - 5vh));
+        @include flex-set(flex, column, nowrap, $gap-m, center, center);
+        font-size: clamp($gap-m, 1.5em, 2vh);
+        color: $color-primary;
+        text-decoration: none;
+        text-transform: uppercase;
 
-   &__button{
-    --icon-trans-y: 0;
-    @include position(100%, 50%, -50%, calc(-100% - 5vh));
-    @include flex-set(flex, column, nowrap, $gap-m, center, center);
-    font-size: clamp($gap-l, 2em,  3vh);
-    color: $color-primary;
-    text-decoration: var(--text-decoration, none);
-    text-transform: uppercase;
+        @include hover {
+            --icon-trans-y: #{$gap-s};
+        }
 
-    @include hover{
-        --icon-trans-y: #{$gap-s};
-        --text-decoration: underline;
+        .icon {
+            --icon-size: clamp(#{$gap-xxl}, 5em, 7vh);
+            translate: 0 var(--icon-trans-y);
+            transition: translate $trans-time ease-in-out;
+        }
     }
-
-    .icon{
-        --icon-size: clamp(#{$gap-xxl}, 5em, 7vh);
-        translate: 0 var(--icon-trans-y);
-        transition: translate $trans-time ease-in-out;
-    }
-   }
 }
 
+@keyframes showRoof {
+    to {
+        opacity: 1;
+        translate: 0 5cqi;
+    }
+}
+
+@keyframes showTitle {
+    to {
+        opacity: 1;
+    }
+}

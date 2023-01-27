@@ -32,8 +32,16 @@
   text-decoration: none;
   overflow: hidden;
 
+  &:has(h2, .button) {
+    @include flex-set(flex, row, nowrap, 0, center, var(--gitem_jc, flex-start));
+  }
+
+  &:has(.button) {
+    @include flex-set(flex, row, nowrap, 0, center, var(--gitem_jc, center));
+  }
+
   &:is(a) {
-    --photo_scale: 1;
+    --photo_scale: 1.05;
     --photo_opacity: 1;
     --photo_filter: blur(0);
     --text_trans-y: 0;
@@ -42,8 +50,8 @@
 
     @include hover {
       --photo_scale: 1.1;
-      --photo_opacity: .9;
-      --photo_filter: blur(.2em);
+      --photo_opacity: 0.9;
+      --photo_filter: blur(0.1em);
       --text_trans-y: -0.2em;
     }
 

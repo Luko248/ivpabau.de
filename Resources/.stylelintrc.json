@@ -10,6 +10,7 @@
     ],
     "order/properties-order": [
       [
+        "@property",
         "@include",
         "all",
         "container-type",
@@ -216,7 +217,10 @@
         "visibility",
         "cursor",
         "user-select",
-        "direction"
+        "direction",
+        "syntax",
+        "inherits",
+        "initial-value"
       ],
       { "unspecified": "bottomAlphabetical" }
     ]

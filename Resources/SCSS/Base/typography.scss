@@ -1,148 +1,149 @@
 @import "../Base/global";
 
-h1, h2, h3, h4, h5, h6, p, ul {
-    margin: 0;
-}
-
-h1, h2, h3, h4, h5, h6 {
-    font-family: $font-title;
-    font-weight: 400;
-    font-style: normal;
-}
-
-p, span, small{
-    font-family: $font-text;
-    font-weight: 100;
-}
-
-.title{
-    --title-justify-content: flex-start;
-    --title-font-size: 6.5em;
-    --title-color: #{$color-primary};
-    --title-mg-bottom: clamp(#{$gap-xxl}, 1em, 5vh); 
-    @include flex-set(flex, row, wrap, 0, center, var(--title-justify-content));
-    margin-bottom: var(--title-mg-bottom);
-    font-family: $font-title;
-    font-size: var(--title-font-size);
-    font-weight: 700;
-    line-height: 1.2;
-    color: var(--title-color);
-
-    @include res-max-laptop-l{
-        --title-font-size: 4em;
+@layer base{
+    h1, h2, h3, h4, h5, h6, p, ul {
+        margin: 0;
     }
-
-    @include res-max-laptop-s{
-        --title-font-size: 3.2em;
+    
+    h1, h2, h3, h4, h5, h6 {
+        font-family: $font-title;
+        font-weight: 400;
+        font-style: normal;
     }
-
-    @include res-max-tablet{
-        --title-font-size: 4em;
-        --title-mg-bottom: #{$gap-xl}; 
+    
+    p, span, small{
+        font-family: $font-text;
+        font-weight: 100;
     }
-
-    @include res-max-mobile-l{
-        --title-font-size: 3.2em;
-    }
-
-    &--center{
-        --title-justify-content: center;
-    }
-
-    &--white{
-        --title-color: #{$color-white};
-    }
-
-    &--s{
-        --title-font-size: 3.2em;
-
+    
+    .title{
+        --title-justify-content: flex-start;
+        --title-font-size: 4.5em;
+        --title-color: #{$color-primary};
+        --title-mg-bottom: clamp(#{$gap-xxl}, 1em, 5vh); 
+        @include flex-set(flex, row, wrap, 0, center, var(--title-justify-content));
+        margin-bottom: var(--title-mg-bottom);
+        font-family: $font-title;
+        font-size: var(--title-font-size);
+        font-weight: 700;
+        line-height: 1.2;
+        color: var(--title-color);
+    
         @include res-max-laptop-l{
-            --title-font-size: 2.4em;
-            --title-mg-bottom: #{$gap-xxl}; 
+            --title-font-size: 2.5em;
         }
     
         @include res-max-laptop-s{
-            --title-font-size: 1.6em;
+            --title-font-size: 2em;
         }
     
         @include res-max-tablet{
-            --title-font-size: 3.2em;
+            --title-font-size: 2.5em;
             --title-mg-bottom: #{$gap-xl}; 
         }
     
         @include res-max-mobile-l{
-            --title-font-size: 2.4em;
+            --title-font-size: 2em;
         }
-    }
-
-    &--l{
-        --title-font-size: 8em;
-        margin-block-start: 1em;
-    }
-
-    &:has(> span){
-        @include flex-set(inline-flex, row, nowrap, $gap-m, flex-end);
-        text-transform: uppercase;
-        span{
-            font-size: .5em;
-            font-weight: 300;
-            line-height: 1;
-            text-transform: lowercase;
-            translate: $gap-s -45%;
-        }
-    }
-}
-
-.desc{
-    --mg-b: 5rem;
-    --desc-font-size: large;
-    margin-bottom: var(--mg-b);
-    font-family:  $font-text;
-    font-size: var(--desc-font-size);
-    line-height: 1.7;
-    color: var(--desc-color, #{$color-primary});
     
-    @include res-max-laptop-s{
-        --desc-font-size: medium;
+        &--center{
+            --title-justify-content: center;
+        }
+    
+        &--white{
+            --title-color: #{$color-white};
+        }
+    
+        &--s{
+            --title-font-size: 3.2em;
+    
+            @include res-max-laptop-l{
+                --title-font-size: 2.4em;
+                --title-mg-bottom: #{$gap-xxl}; 
+            }
+        
+            @include res-max-laptop-s{
+                --title-font-size: 1.6em;
+            }
+        
+            @include res-max-tablet{
+                --title-font-size: 3.2em;
+                --title-mg-bottom: #{$gap-xl}; 
+            }
+        
+            @include res-max-mobile-l{
+                --title-font-size: 2.4em;
+            }
+        }
+    
+        &--l{
+            --title-font-size: 5.5em;
+        }
+    
+        &:has(> span){
+            @include flex-set(inline-flex, row, nowrap, $gap-m, flex-end);
+            text-transform: uppercase;
+            span{
+                font-size: .5em;
+                font-weight: 300;
+                line-height: 1;
+                text-transform: lowercase;
+                translate: $gap-s -45%;
+            }
+        }
     }
-
-    @include res-max-mobile-l{
-        --mg-b: #{$gap-xxl};
+    
+    .desc{
+        --mg-b: 3.5rem;
+        --desc-font-size: large;
+        margin-bottom: var(--mg-b);
+        font-family:  $font-text;
+        font-size: var(--desc-font-size);
+        line-height: 1.7;
+        color: var(--desc-color, #{$color-primary});
+        
+        @include res-max-laptop-s{
+            --desc-font-size: medium;
+        }
+    
+        @include res-max-mobile-l{
+            --mg-b: #{$gap-xxl};
+        }
+    
+        &--white{
+            --desc-color: #{$color-white};
+        }
+    
+    
+        &--no-mg{
+            --mg-b: 0;
+        }
+    
+        &--mg-s{
+            --mg-b: #{$gap-xxl};
+        }
+    
+        strong, a:not(.button), b, span{
+            font-family: inherit;
+            font-size: inherit;
+        }
     }
-
-    &--white{
-        --desc-color: #{$color-white};
+    
+    address{
+        font-family: $font-text;
+        font-size: clamp($gap-l, 2vh, $gap-xl);
+        color: $color-font;
     }
-
-
-    &--no-mg{
-        --mg-b: 0;
-    }
-
-    &--mg-s{
-        --mg-b: #{$gap-xxl};
-    }
-
-    strong, a:not(.button), b, span{
-        font-family: inherit;
-        font-size: inherit;
-    }
-}
-
-address{
-    font-family: $font-text;
-    font-size: clamp($gap-l, 2vh, $gap-xl);
-    color: $color-font;
-}
-
-ul:not([class]){
-    @include grid-columns(grid, minmax($gap-xxl, auto), $gap-m);
-    margin-block-end: $gap-l;
-    font-family: $font-text;
-    font-size: var(--list_font-size, large);
-    color: $color-font;
-
-    @include res-max-tablet{
-        --list_font-size: medium;
+    
+    ul:not([class]){
+        @include grid-columns(grid, minmax($gap-xxl, auto), $gap-m);
+        margin-block-end: $gap-l;
+        font-family: $font-text;
+        font-size: var(--list_font-size, large);
+        color: $color-font;
+    
+        @include res-max-tablet{
+            --list_font-size: medium;
+        }
     }
 }

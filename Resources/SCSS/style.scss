@@ -2,9 +2,10 @@
 @import "../../node_modules/@fancyapps/ui/src/Fancybox/Fancybox.scss";
 // Base
 @import "base/root";
+@import "base/layers";
 @import "base/default";
 @import "base/layout";
-@import "Base/shared-classes";
+@import "Base/classes";
 @import "base/typography";
 
 // Components

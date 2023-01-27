@@ -17,13 +17,9 @@ nav {
 }
 
 .menu {
+    @include flex-set(var(--nenu-display, none), column, nowrap, $gap-xxl, center, center);
     position: fixed;
     inset: 0;
-    display: var(--nenu-display, none);
-    flex-flow: column nowrap;
-    align-items: center;
-    justify-content: center;
-    gap: $gap-xxl;
     padding: 0;
     margin: 0;
     background-color: $color-primary;

@@ -1,40 +1,88 @@
 @import "../base/global";
 
-.button{
-    --btn-color: var(--color-primary);
-    @include flex-set(inline-flex, row, nowrap, $gap-l, center, center, center);
-    @include border('def', 2px, var(--btn-color));
-    min-inline-size: 20rem;
-    padding-block: var(--btn-padding-y, #{$gap-l});
-    padding-inline: var(--btn-padding-x, #{$gap-xxl});
-    background-color: var(--btn-bg-color, var(--color-trans));
-    border-radius: 100vmax;
-    font-family: $font-text;
-    font-size: var(--btn-font-size, large);
-    font-weight: 700;
-    line-height: 1;
-    color: var(--btn-color);
-    text-decoration: none;
-    text-transform: uppercase;
-    transition: background-color var(--trans-time) var(--trans-fnc);
-    cursor: pointer;
 
-    @include res-max-laptop-s{
-        --btn-padding-x: #{$gap-l};
-        --btn-padding-y: 1.2rem;
-        --btn-font-size: medium;
-        --btn-inline-size: 16rem;
-    }
+@layer components{
+    @property --button_gradient-size {
+        syntax: "<percentage>";
+        inherits: false;
+        initial-value: 0%;
+      }
 
-    @include hover{
+    .button{
+        --btn-color: var(--color-primary);
+        --btn-text-color: var(--color-primary);
+        --btn-before_trans-x: -100%;
+        @include flex-set(inline-flex, row, nowrap, $gap-l, center, center, center);
+        @include border('def', 2px, var(--btn-color));
+        position: relative;       
+        background-color: $color-trans;
+        border-radius: 100vmax;
+        font-family: $font-text;
+        font-size: var(--btn-font-size, large);
+        font-weight: 700;
+        line-height: 1;
+        color: var(--btn-text-color);
+        text-align: center;
+        text-decoration: none;
+        text-transform: uppercase;
+        transition: color var(--trans-time) var(--trans-fnc) var(--trans-time);
+        transition: --button_gradient-size .5s ease-in-out;
+        overflow: hidden;
+        isolation: isolate;
+        cursor: pointer;
 
-    }
+        @include hover{
+            --btn-before_trans-x: 0%;
+        }
 
-    &--white{
-        --btn-color: var(--color-bg);
-    }
+        >span{
+            position: relative;
+            min-inline-size: 14rem;
+            padding-block: var(--btn-padding-y, calc(#{$gap-m} + #{$gap-s}));
+            padding-inline: var(--btn-padding-x, #{$gap-l});
+            background-image: linear-gradient(90deg, var(--color-bg) 0%, var(--color-bg) var(--button_gradient-size), var(--color-primary) var(--button_gradient-size), var(--color-primary) 100%);
+            -webkit-background-clip: text;
+            font-weight: inherit;
+            transition: --button_gradient-size var(--trans-time) var(--trans-fnc);
+            -webkit-text-fill-color: transparent;
 
-    .icon{
-        --icon-size: #{$gap-m};
+            @include hover{
+                --button_gradient-size: 100%;
+            }
+        }
+    
+        &:before{
+            position: absolute;
+            inset: 0;
+            content: "";
+            background-color: var(--btn-color);
+            translate: var(--btn-before_trans-x);
+            transition: translate var(--trans-time) var(--trans-fnc);
+            z-index: -1;
+        }
+
+        @include res-max-laptop-s{
+            --btn-padding-x: #{$gap-l};
+            --btn-padding-y: 1.2rem;
+            --btn-font-size: medium;
+            --btn-inline-size: 16rem;          
+        }
+          
+        &--white{        
+            --btn-color: var(--color-bg);
+            --btn-text-color: var(--color-bg);
+
+            @include hover{
+                --btn-text-color: var(--color-primary);
+            }
+
+            > span{
+                background-image: linear-gradient(90deg, var(--color-primary) 0%, var(--color-primary) var(--button_gradient-size), var(--color-bg) var(--button_gradient-size), var(--color-bg) 100%);
+            }
+        }
+    
+        .icon{
+            --icon-size: #{$gap-m};
+        }
     }
 }
