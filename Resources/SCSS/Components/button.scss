@@ -65,8 +65,8 @@
 
             @include res-max-tablet {
                 background-image: none;
-                -webkit-background-clip: none;
-                -webkit-text-fill-color: none;
+                -webkit-background-clip: unset;
+                -webkit-text-fill-color: unset;
             }
 
             @include res-max-mobile-l {

@@ -962,8 +962,8 @@ body {
       @media only screen and (max-width: 768px) {
         .button > span {
           background-image: none;
-          -webkit-background-clip: none;
-          -webkit-text-fill-color: none; } }
+          -webkit-background-clip: unset;
+          -webkit-text-fill-color: unset; } }
       @media only screen and (max-width: 425px) {
         .button > span {
           --btn-padding-y: 0.8rem;
