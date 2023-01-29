@@ -53,10 +53,23 @@
 
             .button>span {
                 color: var(--color-primary);
+                background-color: var(--color-trans);
+                transition: background-color var(--trans-time) var(--trans-fnc);
+            }
+
+            .button>span:hover {
+                color: var(--color-bg);
+                background-color: var(--color-primary);
             }
 
             .button.button--white>span {
                 color: var(--color-bg);
+                background-color: var(--color-trans);
+            }
+
+            .button.button--white>span:hover {
+                background-color: var(--color-bg);
+                color: var(--color-primary);
             }
         }
     </style>
