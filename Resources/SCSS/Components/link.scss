@@ -1,42 +1,26 @@
 @import "../base/global";
 
 .link {
-    --link-text-decor: none;
-    --link-text-trans: none;
-    --icon-trans-x: 0;
-    @include flex-set(inline-flex, row, nowrap, 1.2rem);
+    --link-icon-size: #{$gap-l};
+    --link-icon-scale: 1;
+    @include flex-set(inline-flex, row, nowrap, $gap-m, center);
     font-family: $font-text;
-    font-size: var(--link-font-size, large);
-    color: var(--link-color, #{$color-white});
-    text-decoration: var(--link-text-decor);
-    text-transform: underline;
+    font-size: var(--link-font-size, 1em);
+    color: var(--link-color, #{$color-primary});
+    text-decoration: var(--link-text-decor, none);
     transition: color var(--trans-time) var(--trans-fnc);
-
-    @include res-max-tablet {
-        --trans-time: 0;
-        --link-font-size: medium;
-    }
-
-    &--uppercase {
-        --link-text-trans: uppercase;
-    }
-
-    &--picture {
-        position: relative;
-        address {
-            position: absolute;
-            inset: auto auto $gap-m $gap-m;
-            padding: .5;
-            padding: $gap-s;
-            background-color: $color-white;
-            color: $color-black;
-            white-space: nowrap
-        }
-    }
 
     @include hover {
         --link-text-decor: underline;
-        --icon-trans-x: #{$gap-s};
+        --link-icon-scale: 1.1;
+    }
+
+    &--underline {
+        --link-text-decor: underline;
+    }
+
+    &--white {
+        --link-color: #{$color-white};
     }
 
     > span {
@@ -44,13 +28,17 @@
         color: currentColor;
     }
 
-    > .icon {
-        --icon-size: #{$gap-xl};
-        transform: translateX(var(--icon-trans-x));
-        transition: transform $trans-time ease-in-out;
+    &--l {
+        --link-icon-size: #{$gap-xl};
+        --link-font-size: 1.5em;
+    }
 
-        @include res-max-mobile-m {
-            --icon-size: #{$gap-l};
+    > .icon {
+        --icon-size: var(--link-icon-size);
+        scale: var(--link-icon-scale);
+        transition: scale var(--trans-time) var(--trans-fnc);
+        &-facebook {
+            fill: $color-fb;
         }
     }
 }

@@ -7,6 +7,7 @@ nav {
     block-size: var(--nav-height);
     padding-inline: var(--padding-inline--container);
     background-color: var(--color-trans);
+    font-family: $font-title;
     color: var(--nav-color, #{$color-font});
     z-index: 999;
 
@@ -38,13 +39,27 @@ nav {
         color: $color-white;
         text-align: center;
         text-decoration: var(--item_text-decoration, none);
-        text-transform: uppercase;
 
         @include hover{
             --item_text-decoration: underline;
         }
     }
 
-    &__submenu {
+    &__social{
+        position: absolute;
+        inset: auto auto var(--padding-inline--container) var(--padding-inline--container);
+
+        @include res-max-tablet{
+            inset: auto auto var(--padding-inline--container) 50%;
+            text-align: center;
+            translate: -50%;
+        }
+
+        >strong{
+            display: block;
+            margin-block-end: $gap-m;
+            font-weight: 400;
+            text-transform: uppercase;
+        }
     }
 }

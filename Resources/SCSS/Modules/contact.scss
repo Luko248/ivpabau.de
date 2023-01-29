@@ -1,43 +1,52 @@
 @import "../base/global";
 
 .contact {
-    &__wrapper {
-        --logo_size: 150px;
+    &__container {
         @include grid-columns(
             grid,
-            var(--contact_col-temp, var(--logo_size) minmax(#{$gap-l}, 1fr)),
-            var(--contact_gap, 10vw),
-            flex-start
+            var(--col-temp, minmax($gap-xxl, 8fr) minmax($gap-xxl, 5fr)),
+            var(--gap, clamp($gap-xxl, 5vw, 150px))
         );
+        grid-row-gap: 0;
+    }
 
-        @include res-max-tablet {
-            --logo_size: 100px;
-            --contact_gap: #{$gap-xl};
-        }
+    div:has(> .contact__item) {
+        @include grid-columns($gap: clamp(#{$gap-l}, 0.8em, 5dvh));
+    }
 
-        @include res-max-mobile-l {
-            --logo_size: 50px;
-        }
+    &__info {
+        padding-block: clamp(#{$gap-xl}, 1.6em, 5vw);
+        padding-inline: clamp(#{$gap-xl}, 1.6em, 8vw);
+        background-color: $color-primary--lighten;
+        border-radius: clamp($gap-l, 4dvh, $gap-xl);
 
-        > img {
-            max-inline-size: var(--logo_size);
+        hr {
+            inline-size: 100%;
+            width: 100%;
         }
     }
-    &__grid {
-        @include grid-columns(
-            grid,
-            var(--col-temp, minmax(#{$gap-l}, 8fr) minmax(#{$gap-l}, 5fr)),
-            var(--contact-inner_gap, 5vw),
-            flex-start
-        );
 
-        @include res-max-tablet {
-            --col-temp: minmax(#{$gap-l}, 1fr);
-            --contact-inner_gap: #{$gap-xxl};
+    &__item {
+        font-family: $font-text;
+        color: $color-white;
+
+        strong {
+            display: block;
+            margin-block-end: 0.5em;
+            font-size: clamp($gap-l, 2vh, $gap-xl);
+
+            + a {
+                margin-block-end: 0.5em;
+            }
         }
 
-        img{
-            max-inline-size: 100%;
+        address {
+            font-size: clamp($gap-m, 2dvh, $gap-l);
+            color: $color-font;
+
+            div {
+                margin-block-start: 1em;
+            }
         }
     }
 }

@@ -2,7 +2,7 @@
 
 footer {
   padding: $gap-l;
-  background-color: $color-black;
+  background-color: $color-primary--hover;
 
   > small {
     display: block;
@@ -12,6 +12,4 @@ footer {
     color: $color-white;
     text-align: center;
   }
-
-  
 }

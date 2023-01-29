@@ -7,18 +7,17 @@
   
   /* Track */
   ::-webkit-scrollbar-track {
-    background: $color-black;
+    background: $color-primary--hover;
   }
   
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    background: $color-bg;
+    background: $color-primary--lighten;
     border-radius: $gap-s;
-    cursor: move;
   }
   
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
-    background: $color-bg-dark;
+    background: $color-primary--lighten;
   }
 }

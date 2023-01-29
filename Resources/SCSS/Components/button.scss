@@ -13,8 +13,9 @@
         --btn-text-color: var(--color-primary);
         --btn-before_trans-x: -100%;
         @include border('def', 2px, var(--btn-color));
-        position: relative;    
-        max-inline-size: 14rem;
+        position: relative;
+        display: inline-block;    
+        min-inline-size: 14rem;
         background-color: $color-trans;
         border-radius: 100vmax;
         font-family: $font-text;
@@ -43,6 +44,7 @@
             background-image: linear-gradient(90deg, var(--color-bg) 0%, var(--color-bg) var(--button_gradient-size), var(--color-primary) var(--button_gradient-size), var(--color-primary) 100%);
             -webkit-background-clip: text;
             font-weight: inherit;
+            white-space: nowrap;
             transition: --button_gradient-size var(--trans-time) var(--trans-fnc);
             -webkit-text-fill-color: transparent;
 

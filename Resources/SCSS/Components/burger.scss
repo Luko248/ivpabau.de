@@ -1,5 +1,7 @@
 @import "../base/global";
 .burger {
+  --icon-menu_display: block;
+  --icon-close_display: none;
   @include flex-set(inline-flex, column, nowrap, $gap-s, center);
     position: relative;  
     place-items: center;
@@ -15,10 +17,20 @@
     
     &--open{
       --burger-color: var(--color-white);
+      --icon-menu_display: none;
+      --icon-close_display: block;
     }
 
     .icon{
       --icon-size: #{$gap-xxl};
       pointer-events: none;
+
+      &-menu{
+        display: var(--icon-menu_display);
+      }
+
+      &-close{
+        display: var(--icon-close_display);
+      }
     }
   }

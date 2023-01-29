@@ -17,7 +17,7 @@ section{
     }
 
     &.dark{
-        --sec-bg: #{$color-bg-darken};
+        --sec-bg: #{$color-primary};
     }
     &.no-pt{
         padding-top: 0;
