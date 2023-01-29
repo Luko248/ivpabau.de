@@ -10,7 +10,7 @@ module.exports = {
         chunkLoading: false,
         wasmLoading: false,		
         filename: '[name].js',
-        path: path.resolve(__dirname, './wwwroot/js')
+        path: path.resolve(__dirname, './wwwroot/JS')
     },
 	target: ["web"],
     resolve: {
