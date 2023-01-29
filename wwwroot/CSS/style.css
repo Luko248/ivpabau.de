@@ -1221,7 +1221,7 @@ footer {
   .gitem:is(a) {
     --photo_scale: 1.05;
     --photo_opacity: 1;
-    --photo_filter: blur(0);
+    --photo_filter: blur(.05em) grayscale(50%);
     --text_trans-y: 0;
     padding: clamp(0.8rem, 2vw, 2.4rem);
     background-color: #2a2c2a; }
@@ -1229,7 +1229,7 @@ footer {
       .gitem:is(a):hover {
         --photo_scale: 1.1;
         --photo_opacity: 0.9;
-        --photo_filter: blur(0.1em);
+        --photo_filter: blur(0) grayscale(0);
         --text_trans-y: -0.2em; } }
     .gitem:is(a) img {
       position: absolute;
@@ -1246,6 +1246,7 @@ footer {
       inset: auto auto 2.4rem 2.4rem;
       padding: 0.4em 0.8em;
       background-color: #242424;
+      border-radius: 100vmax;
       font-family: montserrat, sans-serif;
       font-size: x-large;
       letter-spacing: 2px;

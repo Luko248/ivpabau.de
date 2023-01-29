@@ -21,7 +21,7 @@
   @include res-max-mobile-l {
     --gap: #{$gap-xl};
   }
-  
+
   &__invisible{
     display: none;
   }
@@ -47,7 +47,7 @@
   &:is(a) {
     --photo_scale: 1.05;
     --photo_opacity: 1;
-    --photo_filter: blur(0);
+    --photo_filter: blur(.05em) grayscale(50%);
     --text_trans-y: 0;
     padding: clamp($gap-m, 2vw, $gap-xl);
     background-color: $color-secondary;
@@ -55,7 +55,7 @@
     @include hover {
       --photo_scale: 1.1;
       --photo_opacity: 0.9;
-      --photo_filter: blur(0.1em);
+      --photo_filter: blur(0) grayscale(0);
       --text_trans-y: -0.2em;
     }
 
@@ -74,6 +74,7 @@
       inset: auto auto $gap-xl $gap-xl;
       padding: 0.4em 0.8em;
       background-color: $color-primary;
+      border-radius: 100vmax;
       font-family: $font-title;
       font-size: x-large;
       letter-spacing: 2px;
