@@ -979,6 +979,9 @@ body {
       translate: var(--btn-before_trans-x);
       transition: translate var(--trans-time) var(--trans-fnc);
       z-index: -1; }
+      @media only screen and (max-width: 768px) {
+        .button:before {
+          display: none; } }
     .button--white {
       --btn-color: var(--color-bg);
       --btn-text-color: var(--color-bg); }

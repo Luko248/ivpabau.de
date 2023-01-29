@@ -63,7 +63,7 @@
                 --button_gradient-size: 100%;
             }
 
-            @include res-max-tablet{
+            @include res-max-tablet {
                 background-image: none;
                 -webkit-background-clip: none;
                 -webkit-text-fill-color: none;
@@ -88,6 +88,10 @@
             translate: var(--btn-before_trans-x);
             transition: translate var(--trans-time) var(--trans-fnc);
             z-index: -1;
+
+            @include res-max-tablet {
+                display: none;
+            }
         }
 
         &--white {
