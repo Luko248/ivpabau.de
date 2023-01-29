@@ -21,7 +21,7 @@
         --title-font-size: 4.5em;
         --title-color: #{$color-primary};
         --title-mg-bottom: clamp(#{$gap-xxl}, 1em, 5vh); 
-        @include flex-set(flex, row, wrap, var(--title-gap, 0), center, var(--title-justify-content));
+        @include flex-set(flex, row, nowrap, var(--title-gap, 0), center, var(--title-justify-content));
         margin-bottom: var(--title-mg-bottom);
         font-family: $font-title;
         font-size: var(--title-font-size);
@@ -35,6 +35,7 @@
     
         @include res-max-laptop-s{
             --title-font-size: 2em;
+            --title-mg-bottom: 1em; 
         }
     
         @include res-max-tablet{
@@ -54,13 +55,11 @@
             --title-color: #{$color-white};
         }
     
-        
-
         &--s{
             --title-font-size: 2.5em;
             --title-mg-bottom: clamp(#{$gap-l}, .8em, 5dvh); 
 
-            @include res-max-laptop-s{
+            @include res-max-laptop-m{
                 --title-font-size: 1.6em;
             }
         
@@ -76,6 +75,14 @@
 
         &--l{
             --title-font-size: 5.5em;
+
+            @include res-max-laptop-l{
+                --title-font-size: 4.5em;
+            }
+            
+            @include res-max-laptop-s{
+                --title-font-size: 3.5em;
+            }
         }
 
         &:has(>.icon){
@@ -131,7 +138,6 @@
         }
     }
 
-    
     ul:not([class]){
         @include grid-columns(grid, minmax($gap-xxl, auto), $gap-m);
         margin-block-end: $gap-l;

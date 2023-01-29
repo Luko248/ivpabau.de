@@ -31,6 +31,11 @@
     &--l {
         --link-icon-size: #{$gap-xl};
         --link-font-size: 1.5em;
+
+        @include res-max-laptop-m{
+            --link-icon-size: #{$gap-l};
+            --link-font-size: 1em;
+        }   
     }
 
     > .icon {

@@ -14,7 +14,7 @@ section{
 
     @include res-max-tablet{
         --sec-pad-y: 8vh;
-        --sec_scroll-mg: var(--nav-height);
+        --sec_scroll-mg: 0;
     }
 
     &.dark{
@@ -35,8 +35,4 @@ section{
             @include position;
         }
     }
-}
-
-.nav + main > section:first-of-type{
-    padding-top: calc(var(--sec-pad-y) + var(--nav-height));
 }

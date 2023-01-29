@@ -16,15 +16,7 @@
     }
 
     @include res-max-laptop-s {
-        --container-width: 90%;  
-    }
-
-    @include res-max-tablet {
         --container-width: 100%;
-    }
-
-    @include res-max-mobile-l{
-        --container-pad-x: #{$gap-xl};
     }
 
     @include res-max-mobile-m{

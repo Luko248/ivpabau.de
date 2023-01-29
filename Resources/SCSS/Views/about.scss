@@ -1,10 +1,15 @@
 @import "../Base/global";
 
-.about{
-    &__container{
-        @include grid-columns(grid, repeat(var(--col-count, 2), minmax($width-mobile-l, 1fr)), 0, stretch);
+.about {
+    &__container {
+        container-type: inline-size;
+        @include grid-columns(grid, repeat(var(--col-count, 2), minmax($gap-xxl, 1fr)), 0, stretch);
 
-        >div:not([class]){
+        @include res-max-tablet {
+            --col-count: 1;
+        }
+
+        > div:not([class]) {
             min-block-size: 100vh;
             max-block-size: 8096px;
             padding-block: var(--padding-block--section);
@@ -12,14 +17,14 @@
             @include flex-set(flex, column, nowrap, var(--gap, #{$gap-xxl}), center, space-between);
             text-align: center;
 
-            &:first-of-type{
+            &:first-of-type {
                 background-color: $color-primary;
                 color: $color-bg;
             }
         }
 
-        p{
-            inline-size: max(560px, $width-mobile-s);
+        p {
+            inline-size: clamp(290px, calc(100cqi / 3), 50vw);
             margin-inline: auto;
         }
     }

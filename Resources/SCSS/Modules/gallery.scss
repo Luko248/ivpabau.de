@@ -20,6 +20,7 @@
 
   @include res-max-mobile-l {
     --gap: #{$gap-xl};
+    --col-count: 1;
   }
 
   &__invisible{
@@ -32,9 +33,29 @@
   --text_translate-x: calc(-100% - #{$gap-xxl});
   position: relative;
   display: block;
-  aspect-ratio: 1;
+  aspect-ratio: var(--aspect-ratio, 1);
   text-decoration: none;
   overflow: hidden;
+
+  &--col-span-2 {
+    @include grid-col-span(var(--gitem_colspan, 2));
+    --aspect-ratio: none;
+
+    @include res-max-tablet{
+      --aspect-ratio: 2 / 1;
+    }
+
+    @include res-max-mobile-l{
+      --gitem_colspan: 1;
+      --aspect-ratio: 1;
+    }
+
+    &:has(h2){
+      @include res-max-tablet{
+        --aspect-ratio: none;
+      }
+    }
+  }
 
   &:has(h2, .button) {
     @include flex-set(flex, row, nowrap, 0, center, var(--gitem_jc, flex-start));
@@ -42,6 +63,10 @@
 
   &:has(.button) {
     @include flex-set(flex, row, nowrap, 0, center, var(--gitem_jc, center));
+
+    @include res-max-mobile-l{
+      --aspect-ratio: 3 / 1;
+    }
   }
 
   &:is(a) {
@@ -49,6 +74,7 @@
     --photo_opacity: 1;
     --photo_filter: blur(.05em) grayscale(50%);
     --text_trans-y: 0;
+    container-type: inline-size;
     padding: clamp($gap-m, 2vw, $gap-xl);
     background-color: $color-secondary;
 
@@ -71,27 +97,24 @@
 
     > strong {
       position: absolute;
-      inset: auto auto $gap-xl $gap-xl;
+      inset: auto auto clamp(1rem, 4cqb, $gap-l) clamp(1rem, 4cqb, $gap-l);
       padding: 0.4em 0.8em;
       background-color: $color-primary;
       border-radius: 100vmax;
       font-family: $font-title;
-      font-size: x-large;
+      font-size: clamp(1rem, 3cqb, $gap-l);
+      font-weight: 400;
       letter-spacing: 2px;
       color: $color-white;
       text-transform: uppercase;
       translate: 0 var(--text_trans-y);
       transition: translate $trans-time ease-in-out;
+
+      @include res-max-tablet{
+        inset: auto auto clamp(1rem, 2cqb, $gap-l) clamp(1rem, 2cqb, $gap-l);
+      }
     }
   }
 
-  &--row-span-2 {
-    @include grid-row-span(var(--gitem_rowspan, 2));
-    aspect-ratio: unset;
-  }
 
-  &--col-span-2 {
-    @include grid-col-span(var(--gitem_colspan, 2));
-    aspect-ratio: unset;
-  }
 }

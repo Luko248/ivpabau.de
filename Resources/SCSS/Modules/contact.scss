@@ -2,6 +2,7 @@
 
 .contact {
     &__container {
+        container-type: inline-size;
         @include grid-columns(
             grid,
             var(--col-temp, minmax($gap-xxl, 8fr) minmax($gap-xxl, 5fr)),
@@ -15,10 +16,10 @@
     }
 
     &__info {
-        padding-block: clamp(#{$gap-xl}, 1.6em, 5vw);
-        padding-inline: clamp(#{$gap-xl}, 1.6em, 8vw);
+        padding-block: clamp(1rem, 3cqi, $gap-xl);
+        padding-inline: clamp(1rem, 3cqi, $gap-xl);
         background-color: $color-primary--lighten;
-        border-radius: clamp($gap-l, 4dvh, $gap-xl);
+        border-radius: clamp(1rem, 3cqi, $gap-xl);
 
         hr {
             inline-size: 100%;
@@ -33,15 +34,18 @@
         strong {
             display: block;
             margin-block-end: 0.5em;
-            font-size: clamp($gap-l, 2vh, $gap-xl);
-
+            font-size: clamp($gap-l, 1.5em, $gap-xl);
+            @include res-max-laptop-m{
+                --link-icon-size: #{$gap-l};
+                --link-font-size: 1em;
+            }   
             + a {
                 margin-block-end: 0.5em;
             }
         }
 
         address {
-            font-size: clamp($gap-m, 2dvh, $gap-l);
+            font-size: clamp($gap-m, 1em, $gap-l);
             color: $color-font;
 
             div {

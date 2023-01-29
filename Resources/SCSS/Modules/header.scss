@@ -1,6 +1,7 @@
 @import "../base/global";
 
 .header {
+    container-type: inline-size;
     position: relative;
     min-block-size: 100vh;
     max-block-size: 8096px;
@@ -8,14 +9,14 @@
     &__logo {
         @include flex-set(flex, column, nowrap, 0, center, center);
         container-type: inline-size;
-        inline-size: 768px;
+        inline-size: clamp(250px, calc(100cqi / 2), $width-tablet);
         padding-inline: var(--padding-inline--container);
         z-index: 1;
         @include position;
 
         > svg {
             display: block;
-            inline-size: 100cqi;
+            block-size: 19cqi;
             opacity: 0;
             animation: showRoof 0.7s linear forwards 1s;
             translate: 0 7.5cqi;
