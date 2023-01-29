@@ -2,7 +2,7 @@
 
 .about{
     &__container{
-        @include grid-columns(grid, repeat(var(--col-count, 2), minmax($width-mobile-s, 1fr)), 0, stretch);
+        @include grid-columns(grid, repeat(var(--col-count, 2), minmax($width-mobile-l, 1fr)), 0, stretch);
 
         >div:not([class]){
             min-block-size: 100vh;
@@ -19,7 +19,8 @@
         }
 
         p{
-            inline-size: max( $width-mobile-l, $width-mobile-s);
+            inline-size: max(560px, $width-mobile-s);
+            margin-inline: auto;
         }
     }
 }

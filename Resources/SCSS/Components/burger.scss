@@ -2,7 +2,7 @@
 .burger {
   --icon-menu_display: block;
   --icon-close_display: none;
-  @include flex-set(inline-flex, column, nowrap, $gap-s, center);
+  @include flex-set(inline-flex, column, nowrap, $gap-xs, center);
     position: relative;  
     place-items: center;
     padding: 0;
@@ -27,10 +27,16 @@
 
       &-menu{
         display: var(--icon-menu_display);
+        +span{
+          display: var(--icon-menu_display);
+        }
       }
 
       &-close{
         display: var(--icon-close_display);
+        +span{
+          display: var(--icon-close_display);
+        }
       }
     }
   }

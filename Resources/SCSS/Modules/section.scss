@@ -4,6 +4,7 @@ section{
     --sec-bg: #{$color-bg};
     --sec-pad-y: 10vh;
     scroll-margin-top: var(--sec_scroll-mg, 0);
+    scroll-snap-align: start;
     padding: var(--sec-pad-y) 0;
     background-color: var(--sec-bg);
 

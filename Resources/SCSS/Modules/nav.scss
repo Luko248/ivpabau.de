@@ -35,6 +35,7 @@ nav {
     }
 
     &__item {
+        @include flex-set(flex, row, nowrap, $gap-m, center, center);
         font-size: xx-large;
         color: $color-white;
         text-align: center;
@@ -42,6 +43,10 @@ nav {
 
         @include hover{
             --item_text-decoration: underline;
+        }
+
+        > .icon{
+            --icon-size: 1.2em;
         }
     }
 

@@ -728,6 +728,7 @@ html {
 
 body {
   position: relative;
+  scroll-snap-type: y mandatory;
   padding: 0;
   margin: 0; }
 
@@ -988,7 +989,7 @@ body {
   align-items: center;
   align-content: normal;
   justify-content: flex-start;
-  gap: 0.4rem;
+  gap: 0.2rem;
   position: relative;
   place-items: center;
   padding: 0;
@@ -1009,8 +1010,12 @@ body {
     pointer-events: none; }
     .burger .icon-menu {
       display: var(--icon-menu_display); }
+      .burger .icon-menu + span {
+        display: var(--icon-menu_display); }
     .burger .icon-close {
       display: var(--icon-close_display); }
+      .burger .icon-close + span {
+        display: var(--icon-close_display); }
 
 .container {
   inline-size: var(--container-width, 80%);
@@ -1365,6 +1370,12 @@ nav {
     --menu-opacity: 1;
     --nenu-display: flex; }
   .menu__item {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    align-content: normal;
+    justify-content: center;
+    gap: 0.8rem;
     font-size: xx-large;
     color: white;
     text-align: center;
@@ -1372,6 +1383,8 @@ nav {
     @media (hover: hover) {
       .menu__item:hover {
         --item_text-decoration: underline; } }
+    .menu__item > .icon {
+      --icon-size: 1.2em; }
   .menu__social {
     position: absolute;
     inset: auto auto var(--padding-inline--container) var(--padding-inline--container); }
@@ -1390,6 +1403,7 @@ section {
   --sec-bg: #fcfcfc;
   --sec-pad-y: 10vh;
   scroll-margin-top: var(--sec_scroll-mg, 0);
+  scroll-snap-align: start;
   padding: var(--sec-pad-y) 0;
   background-color: var(--sec-bg); }
   @media only screen and (max-width: 1366px) {
@@ -1417,7 +1431,7 @@ section {
 
 .about__container {
   display: grid;
-  grid-template-columns: repeat(var(--col-count, 2), minmax(320px, 1fr));
+  grid-template-columns: repeat(var(--col-count, 2), minmax(425px, 1fr));
   align-items: stretch;
   align-content: flex-start;
   justify-content: flex-start; }
@@ -1437,6 +1451,7 @@ section {
       background-color: #242424;
       color: #fcfcfc; }
   .about__container p {
-    inline-size: 425px; }
+    inline-size: 560px;
+    margin-inline: auto; }
 
 /*# sourceMappingURL=style.css.map */
