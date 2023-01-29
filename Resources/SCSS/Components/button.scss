@@ -32,6 +32,7 @@
 
         @include hover {
             --btn-before_trans-x: 0%;
+            --btn-text-color: var(--color-bg);
         }
 
         @include res-max-mobile-l {
@@ -54,13 +55,14 @@
             -webkit-background-clip: text;
             border-radius: inherit;
             font-weight: inherit;
-            color: var(--btn-color);
+            color: var(--btn-text-color);
             white-space: nowrap;
             transition: --button_gradient-size var(--trans-time) var(--trans-fnc);
             -webkit-text-fill-color: transparent;
-
+            
             @include hover {
                 --button_gradient-size: 100%;
+                --btn-text-color: var(--color-primary);
             }
 
             @include res-max-tablet {

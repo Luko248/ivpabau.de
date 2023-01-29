@@ -933,7 +933,8 @@ body {
     cursor: pointer; }
     @media (hover: hover) {
       .button:hover {
-        --btn-before_trans-x: 0%; } }
+        --btn-before_trans-x: 0%;
+        --btn-text-color: var(--color-bg); } }
     @media only screen and (max-width: 425px) {
       .button {
         --btn-font-size: medium; } }
@@ -952,13 +953,14 @@ body {
       -webkit-background-clip: text;
       border-radius: inherit;
       font-weight: inherit;
-      color: var(--btn-color);
+      color: var(--btn-text-color);
       white-space: nowrap;
       transition: --button_gradient-size var(--trans-time) var(--trans-fnc);
       -webkit-text-fill-color: transparent; }
       @media (hover: hover) {
         .button > span:hover {
-          --button_gradient-size: 100%; } }
+          --button_gradient-size: 100%;
+          --btn-text-color: var(--color-primary); } }
       @media only screen and (max-width: 768px) {
         .button > span {
           background-image: none;
