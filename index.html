@@ -41,20 +41,17 @@
 
     <style>
         @supports (selector(:nth-child(1 of x))) or (-webkit-touch-callout: none) {
-            .button {
-                backhround-image: none;
-                -webkit-text-fill-color: none;
-                -webkit-background-clip: none;
-            }
-
             .button:before {
                 display: none;
             }
 
             .button>span {
+                backhround-image: none;
                 color: var(--color-primary);
                 background-color: var(--color-trans);
                 transition: background-color var(--trans-time) var(--trans-fnc);
+                -webkit-text-fill-color: none;
+                -webkit-background-clip: none;
             }
 
             .button>span:hover {
@@ -64,7 +61,6 @@
 
             .button.button--white>span {
                 color: var(--color-bg);
-                background-color: var(--color-trans);
             }
 
             .button.button--white>span:hover {
