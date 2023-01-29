@@ -58,8 +58,6 @@
             transition: --button_gradient-size var(--trans-time) var(--trans-fnc);
             -webkit-text-fill-color: transparent;
 
-
-
             @include hover {
                 --button_gradient-size: 100%;
             }
