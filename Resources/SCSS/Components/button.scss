@@ -54,12 +54,19 @@
             -webkit-background-clip: text;
             border-radius: inherit;
             font-weight: inherit;
+            color: var(--btn-color);
             white-space: nowrap;
             transition: --button_gradient-size var(--trans-time) var(--trans-fnc);
             -webkit-text-fill-color: transparent;
 
             @include hover {
                 --button_gradient-size: 100%;
+            }
+
+            @include res-max-tablet{
+                background-image: none;
+                -webkit-background-clip: none;
+                -webkit-text-fill-color: none;
             }
 
             @include res-max-mobile-l {

@@ -952,12 +952,18 @@ body {
       -webkit-background-clip: text;
       border-radius: inherit;
       font-weight: inherit;
+      color: var(--btn-color);
       white-space: nowrap;
       transition: --button_gradient-size var(--trans-time) var(--trans-fnc);
       -webkit-text-fill-color: transparent; }
       @media (hover: hover) {
         .button > span:hover {
           --button_gradient-size: 100%; } }
+      @media only screen and (max-width: 768px) {
+        .button > span {
+          background-image: none;
+          -webkit-background-clip: none;
+          -webkit-text-fill-color: none; } }
       @media only screen and (max-width: 425px) {
         .button > span {
           --btn-padding-y: 0.8rem;
@@ -1304,7 +1310,7 @@ footer {
 .header {
   container-type: inline-size;
   position: relative;
-  min-block-size: 100vh;
+  min-block-size: 100dvh;
   max-block-size: 8096px; }
   .header__logo {
     display: flex;
