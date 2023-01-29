@@ -2,41 +2,53 @@
 .burger {
   --icon-menu_display: block;
   --icon-close_display: none;
+  --icon-bg-color: #{$color-white--trans};
   @include flex-set(inline-flex, column, nowrap, $gap-xs, center);
-    position: relative;  
-    place-items: center;
-    padding: 0;
-    background: none;
-    border-color: var(--color-trans);
-    font-size: small;
-    color: var(--burger-color, var(--color-primary));
-    text-transform: uppercase;
-    transition: color $trans-time ease-in-out;
-    z-index: 2;
-    cursor: pointer;
-    
-    &--open{
-      --burger-color: var(--color-white);
-      --icon-menu_display: none;
-      --icon-close_display: block;
-    }
+  position: relative;
+  place-items: center;
+  padding: 0.4em;
+  background: none;
+  background-color: var(--icon-bg-color);
+  border-radius: 0.2em;
+  border-color: var(--color-trans);
+  font-size: small;
+  color: var(--burger-color, var(--color-primary));
+  text-transform: uppercase;
+  transition: color $trans-time ease-in-out;
+  z-index: 2;
+  cursor: pointer;
 
-    .icon{
-      --icon-size: #{$gap-xxl};
-      pointer-events: none;
+  &--open {
+    --burger-color: var(--color-white);
+    --icon-menu_display: none;
+    --icon-close_display: block;
+    --icon-bg-color: #{$color-trans};
+  }
 
-      &-menu{
+  .icon {
+    --icon-size: clamp(#{$gap-l}, 5vw, #{$gap-xxl});
+    pointer-events: none;
+
+    &-menu {
+      display: var(--icon-menu_display);
+      + span {
         display: var(--icon-menu_display);
-        +span{
-          display: var(--icon-menu_display);
+
+        @include res-max-tablet {
+          display: none;
         }
       }
+    }
 
-      &-close{
+    &-close {
+      display: var(--icon-close_display);
+      + span {
         display: var(--icon-close_display);
-        +span{
-          display: var(--icon-close_display);
+
+        @include res-max-tablet {
+          display: none;
         }
       }
     }
   }
+}

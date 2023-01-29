@@ -26,7 +26,7 @@
     --font-title: #{$font-title};
     --border-width: 1px;
     --nav-height: 8rem;
-    --padding-inline--container: clamp(var(--gap-l), 2em, 3vw);
+    --padding-inline--container: clamp(var(--gap-s), 2em, 3vw);
     --padding-block--section: clamp(5vh, 20%, 20vh);
 
     @include res-max-laptop-s{
@@ -34,6 +34,6 @@
     }
 
     @include res-max-tablet{
-        --nav-height: 5rem;
+        --nav-height: 4rem;
     }
 }

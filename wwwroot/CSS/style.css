@@ -705,14 +705,14 @@ body.compensate-for-scrollbar {
   --font-title: montserrat, sans-serif;
   --border-width: 1px;
   --nav-height: 8rem;
-  --padding-inline--container: clamp(var(--gap-l), 2em, 3vw);
+  --padding-inline--container: clamp(var(--gap-s), 2em, 3vw);
   --padding-block--section: clamp(5vh, 20%, 20vh); }
   @media only screen and (max-width: 1024px) {
     :root {
       --nav-height: 7rem; } }
   @media only screen and (max-width: 768px) {
     :root {
-      --nav-height: 5rem; } }
+      --nav-height: 4rem; } }
 
 @layer base, modules, components, utils;
 a {
@@ -842,13 +842,6 @@ body {
       @media only screen and (max-width: 1366px) {
         .title--s {
           --title-font-size: 1.6em; } }
-      @media only screen and (max-width: 768px) {
-        .title--s {
-          --title-font-size: 3.2em;
-          --title-mg-bottom: 2.4rem; } }
-      @media only screen and (max-width: 425px) {
-        .title--s {
-          --title-font-size: 2.4em; } }
     .title--l {
       --title-font-size: 5.5em; }
       @media only screen and (max-width: 1440px) {
@@ -941,6 +934,9 @@ body {
     @media (hover: hover) {
       .button:hover {
         --btn-before_trans-x: 0%; } }
+    @media only screen and (max-width: 425px) {
+      .button {
+        --btn-font-size: medium; } }
     .button > span {
       display: flex;
       flex-flow: row nowrap;
@@ -962,6 +958,10 @@ body {
       @media (hover: hover) {
         .button > span:hover {
           --button_gradient-size: 100%; } }
+      @media only screen and (max-width: 425px) {
+        .button > span {
+          --btn-padding-y: 0.8rem;
+          --btn-padding-x: 0.8rem; } }
       .button > span > .icon {
         --icon-size: 1.6rem;
         transition: fill var(--trans-time) var(--trans-fnc); }
@@ -973,12 +973,6 @@ body {
       translate: var(--btn-before_trans-x);
       transition: translate var(--trans-time) var(--trans-fnc);
       z-index: -1; }
-    @media only screen and (max-width: 1024px) {
-      .button {
-        --btn-padding-x: 1.6rem;
-        --btn-padding-y: 1.2rem;
-        --btn-font-size: medium;
-        --btn-inline-size: 16rem; } }
     .button--white {
       --btn-color: var(--color-bg);
       --btn-text-color: var(--color-bg); }
@@ -991,6 +985,7 @@ body {
 .burger {
   --icon-menu_display: block;
   --icon-close_display: none;
+  --icon-bg-color: rgba(255, 255, 255, 0.7);
   display: inline-flex;
   flex-flow: column nowrap;
   align-items: center;
@@ -999,8 +994,10 @@ body {
   gap: 0.2rem;
   position: relative;
   place-items: center;
-  padding: 0;
+  padding: 0.4em;
   background: none;
+  background-color: var(--icon-bg-color);
+  border-radius: 0.2em;
   border-color: var(--color-trans);
   font-size: small;
   color: var(--burger-color, var(--color-primary));
@@ -1011,18 +1008,25 @@ body {
   .burger--open {
     --burger-color: var(--color-white);
     --icon-menu_display: none;
-    --icon-close_display: block; }
+    --icon-close_display: block;
+    --icon-bg-color: rgba(0, 0, 0, 0); }
   .burger .icon {
-    --icon-size: 3.2rem;
+    --icon-size: clamp(1.6rem, 5vw, 3.2rem);
     pointer-events: none; }
     .burger .icon-menu {
       display: var(--icon-menu_display); }
       .burger .icon-menu + span {
         display: var(--icon-menu_display); }
+        @media only screen and (max-width: 768px) {
+          .burger .icon-menu + span {
+            display: none; } }
     .burger .icon-close {
       display: var(--icon-close_display); }
       .burger .icon-close + span {
         display: var(--icon-close_display); }
+        @media only screen and (max-width: 768px) {
+          .burger .icon-close + span {
+            display: none; } }
 
 .container {
   inline-size: var(--container-width, 80%);
@@ -1135,8 +1139,12 @@ body {
   align-items: flex-start;
   align-content: flex-start;
   justify-content: flex-start;
-  gap: var(--gap, clamp(3.2rem, 5vw, 150px));
-  grid-row-gap: 0; }
+  gap: var(--gap, clamp(2.4rem, 5vw, 150px));
+  grid-row-gap: var(--row-gap, 0); }
+  @media only screen and (max-width: 425px) {
+    .contact__container {
+      --col-temp: minmax(3.2rem, 1fr);
+      --row-gap: 5vh; } }
 
 .contact div:has(> .contact__item) {
   display: grid;
@@ -1166,6 +1174,9 @@ body {
       .contact__item strong {
         --link-icon-size: 1.6rem;
         --link-font-size: 1em; } }
+    @media only screen and (max-width: 768px) {
+      .contact__item strong {
+        font-size: clamp(1rem, 1.25em, 2.4rem); } }
     .contact__item strong + a {
       margin-block-end: 0.5em; }
   .contact__item address {
@@ -1285,7 +1296,10 @@ footer {
       transition: translate 0.25s ease-in-out; }
       @media only screen and (max-width: 768px) {
         .gitem:is(a) > strong {
-          inset: auto auto clamp(1rem, 2cqb, 1.6rem) clamp(1rem, 2cqb, 1.6rem); } }
+          inset: auto auto clamp(1rem, 2cqb, 1.6rem) clamp(1rem, 2cqb, 1.6rem);
+          font-size: clamp(1rem, 2.5cqb, 1.6rem); }
+          .gitem:is(a) > strong[data-long-text] {
+            inset: auto clamp(1rem, 2cqb, 1.6rem) clamp(1rem, 2cqb, 1.6rem) clamp(1rem, 2cqb, 1.6rem); } }
 
 .header {
   container-type: inline-size;
@@ -1383,8 +1397,8 @@ nav {
   flex-flow: column nowrap;
   align-items: center;
   align-content: normal;
-  justify-content: center;
-  gap: 3.2rem;
+  justify-content: var(--menu_jc, center);
+  gap: clamp(1.6rem, 4vh, 2.4rem);
   position: fixed;
   inset: 0;
   padding: 0;
@@ -1394,6 +1408,10 @@ nav {
   list-style: none;
   transition: opacity 0.5s linear 0.1s;
   z-index: 1; }
+  @media only screen and (max-width: 425px) {
+    .menu {
+      --menu_jc: flex-start;
+      padding-block-start: 20vh; } }
   .menu--open {
     --menu-opacity: 1;
     --nenu-display: flex; }
@@ -1404,7 +1422,7 @@ nav {
     align-content: normal;
     justify-content: center;
     gap: 0.8rem;
-    font-size: xx-large;
+    font-size: clamp(1.6rem, 4vh, 2.4rem);
     color: white;
     text-align: center;
     text-decoration: var(--item_text-decoration, none); }

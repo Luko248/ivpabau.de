@@ -18,7 +18,14 @@ nav {
 }
 
 .menu {
-    @include flex-set(var(--nenu-display, none), column, nowrap, $gap-xxl, center, center);
+    @include flex-set(
+        var(--nenu-display, none),
+        column,
+        nowrap,
+        clamp($gap-l, 4vh, $gap-xl),
+        center,
+        var(--menu_jc, center)
+    );
     position: fixed;
     inset: 0;
     padding: 0;
@@ -29,6 +36,11 @@ nav {
     transition: opacity 0.5s linear 0.1s;
     z-index: 1;
 
+    @include res-max-mobile-l {
+        --menu_jc: flex-start;
+        padding-block-start: 20vh;
+    }
+
     &--open {
         --menu-opacity: 1;
         --nenu-display: flex;
@@ -36,31 +48,31 @@ nav {
 
     &__item {
         @include flex-set(flex, row, nowrap, $gap-m, center, center);
-        font-size: xx-large;
+        font-size: clamp($gap-l, 4vh, $gap-xl);
         color: $color-white;
         text-align: center;
         text-decoration: var(--item_text-decoration, none);
 
-        @include hover{
+        @include hover {
             --item_text-decoration: underline;
         }
 
-        > .icon{
+        > .icon {
             --icon-size: 1.2em;
         }
     }
 
-    &__social{
+    &__social {
         position: absolute;
         inset: auto auto var(--padding-inline--container) var(--padding-inline--container);
 
-        @include res-max-tablet{
+        @include res-max-tablet {
             inset: auto auto var(--padding-inline--container) 50%;
             text-align: center;
             translate: -50%;
         }
 
-        >strong{
+        > strong {
             display: block;
             margin-block-end: $gap-m;
             font-weight: 400;

@@ -112,6 +112,11 @@
 
       @include res-max-tablet{
         inset: auto auto clamp(1rem, 2cqb, $gap-l) clamp(1rem, 2cqb, $gap-l);
+        font-size: clamp(1rem, 2.5cqb, $gap-l);
+
+        &[data-long-text]{
+          inset: auto clamp(1rem, 2cqb, $gap-l) clamp(1rem, 2cqb, $gap-l) clamp(1rem, 2cqb, $gap-l);
+        }
       }
     }
   }

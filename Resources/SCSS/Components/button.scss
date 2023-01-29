@@ -34,6 +34,10 @@
             --btn-before_trans-x: 0%;
         }
 
+        @include res-max-mobile-l{
+            --btn-font-size: medium;
+        }
+
         > span {
             @include flex-set(flex, row, nowrap, 0.5em, center, center);
             @include border("def", 2px, var(--btn-color));
@@ -58,6 +62,11 @@
                 --button_gradient-size: 100%;
             }
 
+            @include res-max-mobile-l{
+                --btn-padding-y: #{$gap-m};
+                --btn-padding-x: #{$gap-m};
+            }
+
             > .icon {
                 --icon-size: #{$gap-l};
                 transition: fill var(--trans-time) var(--trans-fnc);
@@ -72,13 +81,6 @@
             translate: var(--btn-before_trans-x);
             transition: translate var(--trans-time) var(--trans-fnc);
             z-index: -1;
-        }
-
-        @include res-max-laptop-s {
-            --btn-padding-x: #{$gap-l};
-            --btn-padding-y: 1.2rem;
-            --btn-font-size: medium;
-            --btn-inline-size: 16rem;
         }
 
         &--white {

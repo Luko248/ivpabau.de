@@ -5,10 +5,15 @@
         container-type: inline-size;
         @include grid-columns(
             grid,
-            var(--col-temp, minmax($gap-xxl, 8fr) minmax($gap-xxl, 5fr)),
-            var(--gap, clamp($gap-xxl, 5vw, 150px))
+            var(--col-temp, minmax(#{$gap-xxl}, 8fr) minmax(#{$gap-xxl}, 5fr)),
+            var(--gap, clamp($gap-xl, 5vw, 150px))
         );
-        grid-row-gap: 0;
+        grid-row-gap: var(--row-gap, 0);
+
+        @include res-max-mobile-l{
+            --col-temp: minmax(#{$gap-xxl}, 1fr);
+            --row-gap: 5vh;
+        }
     }
 
     div:has(> .contact__item) {
@@ -39,6 +44,11 @@
                 --link-icon-size: #{$gap-l};
                 --link-font-size: 1em;
             }   
+
+            @include res-max-tablet{
+                font-size: clamp(1rem, 1.25em, $gap-xl);
+            }
+
             + a {
                 margin-block-end: 0.5em;
             }
