@@ -36,8 +36,28 @@
         content="Wir arbeiten am Bau von Fundament auf bis zu den Schlüssel aus dem Haus." />
     <meta name="twitter:image" content="wwwroot/Images/meta/meta-twitter.png" />
 
-    <link href="wwwroot/CSS/style.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://use.typekit.net/cta6jdx.css">
+    <link href="wwwroot/CSS/style.min.css" rel="stylesheet" />
+
+    <style>
+        @supports (selector(:nth-child(1 of x))) or (-webkit-touch-callout: none) {
+            .button {
+                backhround-image: none;
+            }
+
+            .button:before {
+                display: none;
+            }
+
+            .button>span {
+                color: var(--color-primary);
+            }
+
+            .button.button--white>span {
+                color: var(--color-bg);
+            }
+        }
+    </style>
 
     <script type="application/ld+json">
         {
@@ -223,7 +243,8 @@
                                 srcset="wwwroot/Images/gallery/bagger/bagger_01_s.avif">
                             <source type="image/webp" sizes="(max-width: 560px)"
                                 srcset="wwwroot/Images/gallery/bagger/bagger_01_s.webpp">
-                            <img src="wwwroot/Images/gallery/bagger/bagger_01.webp" loading="lazy" width="768"alt="Bagger 1">
+                            <img src="wwwroot/Images/gallery/bagger/bagger_01.webp" loading="lazy" width="768"
+                                alt="Bagger 1">
                         </picture>
                         <strong>Bagger</strong>
                     </a>
@@ -238,7 +259,8 @@
                                 srcset="wwwroot/Images/gallery/armirung/armirung_01_s.avif">
                             <source type="image/webp" sizes="(max-width: 560px)"
                                 srcset="wwwroot/Images/gallery/armirung/armirung_01_s.webpp">
-                            <img src="wwwroot/Images/gallery/armirung/armirung_01.webp" loading="lazy" width="768" alt="Armirung 1">
+                            <img src="wwwroot/Images/gallery/armirung/armirung_01.webp" loading="lazy" width="768"
+                                alt="Armirung 1">
                         </picture>
                         <strong>Armirung</strong>
                     </a>
@@ -287,7 +309,8 @@
                                 srcset="wwwroot/Images/gallery/trockenbau/trockenbau_01_s.avif">
                             <source type="image/webp" sizes="(max-width: 560px)"
                                 srcset="wwwroot/Images/gallery/trockenbau/fliesenleger_01_s.webpp">
-                            <img src="wwwroot/Images/gallery/trockenbau/trockenbau_01.webp" loading="lazy" width="768" alt="Trockenbau 1">
+                            <img src="wwwroot/Images/gallery/trockenbau/trockenbau_01.webp" loading="lazy" width="768"
+                                alt="Trockenbau 1">
                         </picture>
                         <strong>Trockenbau</strong>
                     </a>
@@ -318,7 +341,8 @@
                                 srcset="wwwroot/Images/gallery/fassade/fassade_01_s.avif">
                             <source type="image/webp" sizes="(max-width: 560px)"
                                 srcset="wwwroot/Images/gallery/fassade/fassade_01_s.webpp">
-                            <img src="wwwroot/Images/gallery/fassade/fassade_01.webp" loading="lazy" width="768" alt="Fassade 1">
+                            <img src="wwwroot/Images/gallery/fassade/fassade_01.webp" loading="lazy" width="768"
+                                alt="Fassade 1">
                         </picture>
                         <strong>Fassade</strong>
                     </a>
@@ -487,8 +511,10 @@
                 class="link">Protokoly</a>
         </div> -->
         <small class="footer__copy">
-            ©2018 - <span id="Year"></span>&nbsp;<strong>ivpa s.r.o.</strong>,&nbsp;Alle Rechte vorbehalten&nbsp;|&nbsp;Entwickelt von <a class="link link--white link--underline" href="https://lukaschylik.sk/"
-                target="_blank" rel="external" aria-label="Lukáš Chylík portfolio website">Lukáš
+            ©2018 - <span id="Year"></span>&nbsp;<strong>ivpa s.r.o.</strong>,&nbsp;Alle Rechte
+            vorbehalten&nbsp;|&nbsp;Entwickelt von <a class="link link--white link--underline"
+                href="https://lukaschylik.sk/" target="_blank" rel="external"
+                aria-label="Lukáš Chylík portfolio website">Lukáš
                 Chylík</a>
         </small>
     </footer>

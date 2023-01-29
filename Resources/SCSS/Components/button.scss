@@ -34,7 +34,7 @@
             --btn-before_trans-x: 0%;
         }
 
-        @include res-max-mobile-l{
+        @include res-max-mobile-l {
             --btn-font-size: medium;
         }
 
@@ -58,11 +58,13 @@
             transition: --button_gradient-size var(--trans-time) var(--trans-fnc);
             -webkit-text-fill-color: transparent;
 
+
+
             @include hover {
                 --button_gradient-size: 100%;
             }
 
-            @include res-max-mobile-l{
+            @include res-max-mobile-l {
                 --btn-padding-y: #{$gap-m};
                 --btn-padding-x: #{$gap-m};
             }
