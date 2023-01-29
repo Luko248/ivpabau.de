@@ -21,6 +21,10 @@
   @include res-max-mobile-l {
     --gap: #{$gap-xl};
   }
+  
+  &__invisible{
+    display: none;
+  }
 }
 
 .gitem {

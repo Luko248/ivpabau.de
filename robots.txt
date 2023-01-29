@@ -3,4 +3,4 @@ user-agent: *
 allow: *.js
 allow: *.css
 
-Sitemap: https://ivpaokna.sk/sitemap.xml
+Sitemap: https://ivpabau.de/sitemap.xml

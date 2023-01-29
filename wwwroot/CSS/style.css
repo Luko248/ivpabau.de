@@ -912,7 +912,6 @@ body {
     --btn-color: var(--color-primary);
     --btn-text-color: var(--color-primary);
     --btn-before_trans-x: -100%;
-    border: 2px solid var(--btn-color);
     position: relative;
     display: inline-block;
     min-inline-size: 14rem;
@@ -927,7 +926,7 @@ body {
     text-decoration: none;
     text-transform: uppercase;
     transition: color var(--trans-time) var(--trans-fnc) var(--trans-time);
-    transition: --button_gradient-size .5s ease-in-out;
+    transition: --button_gradient-size 0.5s ease-in-out;
     overflow: hidden;
     isolation: isolate;
     cursor: pointer; }
@@ -935,12 +934,19 @@ body {
       .button:hover {
         --btn-before_trans-x: 0%; } }
     .button > span {
-      display: block;
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+      align-content: normal;
+      justify-content: center;
+      gap: 0.5em;
+      border: 2px solid var(--btn-color);
       min-inline-size: 14rem;
       padding-block: var(--btn-padding-y, calc(0.8rem + 0.4rem));
       padding-inline: var(--btn-padding-x, 1.6rem);
       background-image: linear-gradient(90deg, var(--color-bg) 0%, var(--color-bg) var(--button_gradient-size), var(--color-primary) var(--button_gradient-size), var(--color-primary) 100%);
       -webkit-background-clip: text;
+      border-radius: inherit;
       font-weight: inherit;
       white-space: nowrap;
       transition: --button_gradient-size var(--trans-time) var(--trans-fnc);
@@ -948,6 +954,9 @@ body {
       @media (hover: hover) {
         .button > span:hover {
           --button_gradient-size: 100%; } }
+      .button > span > .icon {
+        --icon-size: 1.6rem;
+        transition: fill var(--trans-time) var(--trans-fnc); }
     .button:before {
       position: absolute;
       inset: 0;
@@ -1028,12 +1037,13 @@ body {
     .container {
       --container-pad-x: 1.6rem; } }
 
-.icon {
-  --icon-size: 2.4rem;
-  display: block;
-  inline-size: var(--icon-size);
-  aspect-ratio: 1;
-  fill: currentColor; }
+@layer components {
+  .icon {
+    --icon-size: 2.4rem;
+    display: block;
+    inline-size: var(--icon-size);
+    aspect-ratio: 1;
+    fill: currentColor; } }
 
 .link {
   --link-icon-size: 1.6rem;
@@ -1178,6 +1188,8 @@ footer {
   @media only screen and (max-width: 425px) {
     .gallery {
       --gap: 2.4rem; } }
+  .gallery__invisible {
+    display: none; }
 
 .gitem {
   --photo_scale: 1;
