@@ -53,12 +53,14 @@
                 -webkit-background-clip: unset;
             }
 
-            .button>span:hover {
-                background-color: var(--color-primary);
-            }
+            @media (hover:hover) {
+                .button>span:hover {
+                    background-color: var(--color-primary);
+                }
 
-            .button.button--white>span:hover {
-                background-color: var(--color-bg);
+                .button.button--white>span:hover {
+                    background-color: var(--color-bg);
+                }
             }
         }
     </style>
