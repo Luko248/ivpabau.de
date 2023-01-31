@@ -1040,13 +1040,12 @@ body {
             display: none; } }
 
 .container {
-  inline-size: var(--container-width, 80%);
+  inline-size: var(--container-width, 75%);
   min-inline-size: var(--container-min-width, 1024px);
   padding-inline: var(--container-pad-x, var(--padding-inline--container));
   margin-inline: auto; }
   @media only screen and (max-width: 1440px) {
     .container {
-      --container-width: 75%;
       --container-min-width: 0; } }
   @media only screen and (max-width: 1366px) {
     .container {
@@ -1250,6 +1249,16 @@ footer {
     @media only screen and (max-width: 768px) {
       .gitem--col-span-2:has(h2) {
         --aspect-ratio: none; } }
+  .gitem--l {
+    grid-row-end: span var(--gitem_rowspan, 2);
+    grid-column-end: span var(--gitem_colspan, 2); }
+    @media only screen and (max-width: 768px) {
+      .gitem--l {
+        --gitem_rowspan: 1;
+        --gitem_colspan: 1; } }
+    @media only screen and (max-width: 768px) {
+      .gitem--l:is(a) img {
+        max-inline-size: 100%; } }
   .gitem:has(h2, .button) {
     display: flex;
     flex-flow: row nowrap;
@@ -1267,10 +1276,12 @@ footer {
     @media only screen and (max-width: 425px) {
       .gitem:has(.button) {
         --aspect-ratio: 3 / 1; } }
+  @media only screen and (max-width: 425px) {
+    .gitem:empty {
+      display: none; } }
   .gitem:is(a) {
     --photo_scale: 1.05;
     --photo_opacity: 1;
-    --photo_filter: blur(.05em) grayscale(50%);
     --text_trans-y: 0;
     container-type: inline-size;
     padding: clamp(0.8rem, 2vw, 2.4rem);
@@ -1279,7 +1290,7 @@ footer {
       .gitem:is(a):hover {
         --photo_scale: 1.1;
         --photo_opacity: 0.9;
-        --photo_filter: blur(0) grayscale(0);
+        --photo_filter: grayscale(0);
         --text_trans-y: -0.2em; } }
     .gitem:is(a) img {
       position: absolute;
@@ -1288,9 +1299,8 @@ footer {
       min-inline-size: 100%;
       min-block-size: 100%;
       opacity: var(--photo_opacity);
-      filter: var(--photo_filter);
       scale: var(--photo_scale);
-      transition: scale 0.25s ease-in-out, filter 0.25s ease-in-out, opacity 0.25s ease-in-out; }
+      transition: scale 0.25s ease-in-out, opacity 0.25s ease-in-out; }
     .gitem:is(a) > strong {
       position: absolute;
       inset: auto auto clamp(1rem, 4cqb, 1.6rem) clamp(1rem, 4cqb, 1.6rem);

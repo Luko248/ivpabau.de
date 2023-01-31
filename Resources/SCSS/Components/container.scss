@@ -1,13 +1,12 @@
 @import "../base/global";
 
 .container {
-    inline-size: var(--container-width, 80%);
+    inline-size: var(--container-width, 75%);
     min-inline-size: var(--container-min-width, #{$width-laptop-s});
     padding-inline: var(--container-pad-x, var(--padding-inline--container));
     margin-inline: auto;
 
     @include res-max-laptop-l {
-        --container-width: 75%;
         --container-min-width: 0;
     }
 

@@ -57,6 +57,22 @@
     }
   }
 
+  &--l {
+    @include grid-row-span(var(--gitem_rowspan, 2));
+    @include grid-col-span(var(--gitem_colspan, 2));
+
+    @include res-max-tablet{
+      --gitem_rowspan: 1;
+      --gitem_colspan: 1;
+    }
+
+    &:is(a) img{
+      @include res-max-tablet{
+        max-inline-size: 100%;
+      }
+    }
+  }
+
   &:has(h2, .button) {
     @include flex-set(flex, row, nowrap, 0, center, var(--gitem_jc, flex-start));
   }
@@ -69,10 +85,16 @@
     }
   }
 
+  &:empty{
+    @include res-max-mobile-l{
+      display: none;
+    }
+  }
+
   &:is(a) {
     --photo_scale: 1.05;
     --photo_opacity: 1;
-    --photo_filter: blur(.05em) grayscale(50%);
+    // --photo_filter: grayscale(50%);
     --text_trans-y: 0;
     container-type: inline-size;
     padding: clamp($gap-m, 2vw, $gap-xl);
@@ -81,7 +103,7 @@
     @include hover {
       --photo_scale: 1.1;
       --photo_opacity: 0.9;
-      --photo_filter: blur(0) grayscale(0);
+      --photo_filter: grayscale(0);
       --text_trans-y: -0.2em;
     }
 
@@ -90,9 +112,9 @@
       min-inline-size: 100%;
       min-block-size: 100%;
       opacity: var(--photo_opacity);
-      filter: var(--photo_filter);
+      // filter: var(--photo_filter);
       scale: var(--photo_scale);
-      transition: scale $trans-time ease-in-out, filter $trans-time ease-in-out, opacity $trans-time ease-in-out;
+      transition: scale $trans-time ease-in-out, opacity $trans-time ease-in-out;
     }
 
     > strong {
