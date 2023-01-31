@@ -57,6 +57,20 @@
     }
   }
 
+  &--row-span-2 {
+    @include grid-row-span(var(--gitem_rowspan, 2));
+    --aspect-ratio: none;
+
+    @include res-max-tablet{
+      --gitem_rowspan: 1 / 2;
+    }
+
+    @include res-max-mobile-l{
+      --gitem_colspan: 1;
+      --aspect-ratio: 1;
+    }
+  }
+
   &--l {
     @include grid-row-span(var(--gitem_rowspan, 2));
     @include grid-col-span(var(--gitem_colspan, 2));

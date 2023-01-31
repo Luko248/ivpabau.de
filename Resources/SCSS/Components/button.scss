@@ -112,6 +112,10 @@
                     var(--color-bg) var(--button_gradient-size),
                     var(--color-bg) 100%
                 );
+
+                @include res-max-tablet {
+                    background-image: none;
+                }
             }
         }
     }
